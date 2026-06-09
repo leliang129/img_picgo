@@ -1,0 +1,14 @@
+<svg width="960" height="380" viewBox="0 0 960 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="380" rx="24" fill="#FFF8ED"/>
+  <rect x="82" y="74" width="796" height="232" rx="26" fill="#FFFFFF" stroke="#FB923C" stroke-width="2"/>
+  <text x="116" y="118" fill="#9A3412" font-family="Arial, sans-serif" font-size="30" font-weight="700">Pod Security Context</text>
+  <text x="116" y="154" fill="#7C2D12" font-family="Arial, sans-serif" font-size="18">runAsUser / runAsGroup / fsGroup / seccompProfile</text>
+
+  <rect x="156" y="188" width="280" height="84" rx="18" fill="#FFF7ED" stroke="#FB923C" stroke-width="2"/>
+  <text x="190" y="226" fill="#9A3412" font-family="Arial, sans-serif" font-size="24" font-weight="700">Container A</text>
+  <text x="190" y="254" fill="#7C2D12" font-family="Arial, sans-serif" font-size="16">allowPrivilegeEscalation</text>
+
+  <rect x="524" y="188" width="280" height="84" rx="18" fill="#FFF7ED" stroke="#FB923C" stroke-width="2"/>
+  <text x="558" y="226" fill="#9A3412" font-family="Arial, sans-serif" font-size="24" font-weight="700">Container B</text>
+  <text x="558" y="254" fill="#7C2D12" font-family="Arial, sans-serif" font-size="16">capabilities / readOnlyRootFilesystem</text>
+</svg>
