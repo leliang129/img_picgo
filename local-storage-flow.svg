@@ -1,0 +1,21 @@
+<svg width="960" height="400" viewBox="0 0 960 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="400" rx="24" fill="#FFF8ED"/>
+  <rect x="58" y="144" width="196" height="112" rx="20" fill="#FFFFFF" stroke="#FB923C" stroke-width="2"/>
+  <text x="100" y="190" fill="#9A3412" font-family="Arial, sans-serif" font-size="28" font-weight="700">Pod</text>
+  <text x="88" y="222" fill="#7C2D12" font-family="Arial, sans-serif" font-size="18">使用 PVC 请求存储</text>
+
+  <rect x="374" y="78" width="204" height="92" rx="18" fill="#FFFFFF" stroke="#F59E0B" stroke-width="2"/>
+  <text x="432" y="132" fill="#9A3412" font-family="Arial, sans-serif" font-size="28" font-weight="700">PVC</text>
+
+  <rect x="374" y="230" width="204" height="92" rx="18" fill="#FFFFFF" stroke="#FB923C" stroke-width="2"/>
+  <text x="432" y="284" fill="#9A3412" font-family="Arial, sans-serif" font-size="28" font-weight="700">PV</text>
+
+  <rect x="704" y="128" width="186" height="144" rx="22" fill="#FFFFFF" stroke="#EA580C" stroke-width="2"/>
+  <text x="738" y="178" fill="#9A3412" font-family="Arial, sans-serif" font-size="28" font-weight="700">Node Disk</text>
+  <text x="734" y="212" fill="#7C2D12" font-family="Arial, sans-serif" font-size="18">local.path</text>
+  <text x="722" y="238" fill="#7C2D12" font-family="Arial, sans-serif" font-size="18">nodeAffinity 约束节点</text>
+
+  <path d="M254 200H374" stroke="#FB923C" stroke-width="4" stroke-linecap="round"/>
+  <path d="M476 170V230" stroke="#F59E0B" stroke-width="4" stroke-linecap="round"/>
+  <path d="M578 276H704" stroke="#F97316" stroke-width="4" stroke-linecap="round"/>
+</svg>
