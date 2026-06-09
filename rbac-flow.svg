@@ -1,0 +1,25 @@
+<svg width="960" height="360" viewBox="0 0 960 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="360" rx="24" fill="#FFF8ED"/>
+  <rect x="52" y="92" width="188" height="176" rx="20" fill="#FFFFFF" stroke="#FB923C" stroke-width="2"/>
+  <text x="92" y="138" fill="#9A3412" font-family="Arial, sans-serif" font-size="28" font-weight="700">Subject</text>
+  <text x="92" y="176" fill="#7C2D12" font-family="Arial, sans-serif" font-size="18">User</text>
+  <text x="92" y="204" fill="#7C2D12" font-family="Arial, sans-serif" font-size="18">Group</text>
+  <text x="92" y="232" fill="#7C2D12" font-family="Arial, sans-serif" font-size="18">ServiceAccount</text>
+
+  <rect x="386" y="92" width="188" height="176" rx="20" fill="#FFFFFF" stroke="#F59E0B" stroke-width="2"/>
+  <text x="417" y="138" fill="#9A3412" font-family="Arial, sans-serif" font-size="28" font-weight="700">Binding</text>
+  <text x="417" y="176" fill="#7C2D12" font-family="Arial, sans-serif" font-size="18">RoleBinding</text>
+  <text x="417" y="204" fill="#7C2D12" font-family="Arial, sans-serif" font-size="18">ClusterRoleBinding</text>
+
+  <rect x="720" y="92" width="188" height="176" rx="20" fill="#FFFFFF" stroke="#EA580C" stroke-width="2"/>
+  <text x="748" y="138" fill="#9A3412" font-family="Arial, sans-serif" font-size="28" font-weight="700">Role</text>
+  <text x="748" y="176" fill="#7C2D12" font-family="Arial, sans-serif" font-size="18">Role</text>
+  <text x="748" y="204" fill="#7C2D12" font-family="Arial, sans-serif" font-size="18">ClusterRole</text>
+  <text x="748" y="244" fill="#7C2D12" font-family="Arial, sans-serif" font-size="16">rules:</text>
+  <text x="748" y="268" fill="#7C2D12" font-family="Arial, sans-serif" font-size="16">resources + verbs</text>
+
+  <path d="M240 180H386" stroke="#FB923C" stroke-width="4" stroke-linecap="round"/>
+  <path d="M574 180H720" stroke="#F97316" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="386" cy="180" r="6" fill="#FB923C"/>
+  <circle cx="720" cy="180" r="6" fill="#F97316"/>
+</svg>
