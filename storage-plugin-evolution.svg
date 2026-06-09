@@ -1,0 +1,59 @@
+<svg width="980" height="560" viewBox="0 0 980 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="980" y2="560" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF7ED"/>
+      <stop offset="1" stop-color="#EFF6FF"/>
+    </linearGradient>
+    <linearGradient id="orange" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#F97316"/>
+      <stop offset="1" stop-color="#FDBA74"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#0EA5E9"/>
+      <stop offset="1" stop-color="#7DD3FC"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#64748B" flood-opacity="0.18"/>
+    </filter>
+    <style>
+      .title { font: 700 28px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #0F172A; }
+      .text { font: 500 18px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #334155; }
+      .small { font: 500 16px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #475569; }
+      .label { font: 700 15px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #0F172A; }
+      .pill { font: 700 14px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: white; }
+    </style>
+  </defs>
+
+  <rect width="980" height="560" rx="28" fill="url(#bg)"/>
+  <text x="48" y="64" class="title">Kubernetes 存储插件演进</text>
+  <text x="48" y="96" class="text">从内置驱动到脚本式扩展，再到标准化 CSI，存储能力逐步与 Kubernetes 核心解耦。</text>
+
+  <rect x="54" y="154" width="258" height="292" rx="24" fill="white" filter="url(#shadow)"/>
+  <rect x="84" y="182" width="86" height="30" rx="15" fill="url(#orange)"/>
+  <text x="111" y="202" class="pill">In-Tree</text>
+  <text x="84" y="246" class="text">驱动在 Kubernetes 核心代码里</text>
+  <text x="84" y="282" class="small">优点：集成直接</text>
+  <text x="84" y="308" class="small">问题：升级慢、耦合重、维护成本高</text>
+
+  <rect x="362" y="154" width="258" height="292" rx="24" fill="white" filter="url(#shadow)"/>
+  <rect x="392" y="182" width="110" height="30" rx="15" fill="url(#blue)"/>
+  <text x="423" y="202" class="pill">FlexVolume</text>
+  <text x="392" y="246" class="text">节点本地脚本或二进制扩展</text>
+  <text x="392" y="282" class="small">优点：比 In-Tree 灵活</text>
+  <text x="392" y="308" class="small">问题：节点运维重、接口能力有限</text>
+
+  <rect x="670" y="154" width="258" height="292" rx="24" fill="white" filter="url(#shadow)"/>
+  <rect x="700" y="182" width="58" height="30" rx="15" fill="url(#orange)"/>
+  <text x="717" y="202" class="pill">CSI</text>
+  <text x="700" y="246" class="text">标准化存储接口</text>
+  <text x="700" y="282" class="small">优点：解耦、生态成熟、能力完整</text>
+  <text x="700" y="308" class="small">现状：主流云盘与分布式存储首选</text>
+
+  <path d="M312 300H362" stroke="#F97316" stroke-width="4" stroke-linecap="round"/>
+  <path d="M346 290L362 300L346 310" stroke="#F97316" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M620 300H670" stroke="#0EA5E9" stroke-width="4" stroke-linecap="round"/>
+  <path d="M654 290L670 300L654 310" stroke="#0EA5E9" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="286" y="474" width="410" height="40" rx="20" fill="#0F172A"/>
+  <text x="334" y="500" class="pill">今天的新项目和新集群：优先使用 CSI</text>
+</svg>
