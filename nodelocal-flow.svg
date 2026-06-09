@@ -1,0 +1,19 @@
+<svg width="960" height="380" viewBox="0 0 960 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="380" rx="24" fill="#FFF8ED"/>
+  <rect x="64" y="146" width="170" height="92" rx="18" fill="#FFFFFF" stroke="#FB923C" stroke-width="2"/>
+  <text x="96" y="200" fill="#9A3412" font-family="Arial, sans-serif" font-size="28" font-weight="700">Pod</text>
+
+  <rect x="314" y="126" width="258" height="132" rx="22" fill="#FFFFFF" stroke="#F59E0B" stroke-width="2"/>
+  <text x="352" y="176" fill="#9A3412" font-family="Arial, sans-serif" font-size="28" font-weight="700">NodeLocal DNSCache</text>
+  <text x="366" y="210" fill="#7C2D12" font-family="Arial, sans-serif" font-size="18">节点本地缓存代理</text>
+
+  <rect x="684" y="88" width="192" height="88" rx="18" fill="#FFFFFF" stroke="#EA580C" stroke-width="2"/>
+  <text x="734" y="140" fill="#9A3412" font-family="Arial, sans-serif" font-size="26" font-weight="700">CoreDNS</text>
+
+  <rect x="684" y="218" width="192" height="88" rx="18" fill="#FFFFFF" stroke="#FB923C" stroke-width="2"/>
+  <text x="728" y="270" fill="#9A3412" font-family="Arial, sans-serif" font-size="24" font-weight="700">上游 DNS</text>
+
+  <path d="M234 192H314" stroke="#FB923C" stroke-width="4" stroke-linecap="round"/>
+  <path d="M572 170H684" stroke="#F97316" stroke-width="4" stroke-linecap="round"/>
+  <path d="M572 214H684" stroke="#FB923C" stroke-width="4" stroke-linecap="round"/>
+</svg>
