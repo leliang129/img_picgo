@@ -1,0 +1,74 @@
+<svg width="960" height="520" viewBox="0 0 960 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="960" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF7ED"/>
+      <stop offset="1" stop-color="#EFF6FF"/>
+    </linearGradient>
+    <linearGradient id="nodeA" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#F97316"/>
+      <stop offset="1" stop-color="#FDBA74"/>
+    </linearGradient>
+    <linearGradient id="nodeB" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#0EA5E9"/>
+      <stop offset="1" stop-color="#7DD3FC"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#94A3B8" flood-opacity="0.18"/>
+    </filter>
+    <style>
+      .title { font: 700 28px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #0F172A; }
+      .text  { font: 500 18px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #334155; }
+      .small { font: 500 16px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #475569; }
+      .tag   { font: 700 15px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #0F172A; }
+      .pill  { font: 700 14px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: white; }
+    </style>
+  </defs>
+
+  <rect width="960" height="520" rx="28" fill="url(#bg)"/>
+  <text x="52" y="66" class="title">Kubernetes 调度约束</text>
+  <text x="52" y="98" class="text">节点标签负责筛选，Pod 亲和性负责靠近或分散，污点负责节点准入门槛。</text>
+
+  <rect x="48" y="136" width="402" height="314" rx="24" fill="white" filter="url(#shadow)"/>
+  <text x="78" y="182" class="title" style="font-size:24px">节点选择</text>
+  <rect x="78" y="206" width="146" height="34" rx="17" fill="#FFEDD5"/>
+  <text x="96" y="228" class="tag">label: workload=ml</text>
+  <rect x="78" y="252" width="316" height="78" rx="18" fill="#FFF7ED" stroke="#FDBA74"/>
+  <text x="98" y="286" class="text">nodeSelector / nodeAffinity</text>
+  <text x="98" y="312" class="small">让 Pod 只去指定节点，或优先去某些节点</text>
+
+  <rect x="78" y="352" width="136" height="34" rx="17" fill="#DBEAFE"/>
+  <text x="96" y="374" class="tag">拓扑域: hostname</text>
+  <rect x="228" y="352" width="112" height="34" rx="17" fill="#E0F2FE"/>
+  <text x="246" y="374" class="tag">zone / region</text>
+
+  <rect x="510" y="136" width="402" height="314" rx="24" fill="white" filter="url(#shadow)"/>
+  <text x="540" y="182" class="title" style="font-size:24px">节点关系</text>
+
+  <rect x="542" y="214" width="144" height="188" rx="22" fill="#FFF7ED" stroke="#FDBA74" stroke-width="2"/>
+  <rect x="572" y="238" width="84" height="28" rx="14" fill="url(#nodeA)"/>
+  <text x="590" y="257" class="pill">Node A</text>
+  <rect x="566" y="284" width="96" height="42" rx="14" fill="#F97316" fill-opacity="0.12" stroke="#F97316"/>
+  <text x="588" y="310" class="tag">Cache Pod</text>
+  <rect x="566" y="340" width="96" height="42" rx="14" fill="#0EA5E9" fill-opacity="0.12" stroke="#0EA5E9"/>
+  <text x="577" y="366" class="tag">App Pod</text>
+  <text x="557" y="392" class="small">podAffinity:</text>
+  <text x="557" y="414" class="small">希望靠近依赖 Pod</text>
+
+  <rect x="736" y="214" width="144" height="188" rx="22" fill="#EFF6FF" stroke="#7DD3FC" stroke-width="2"/>
+  <rect x="766" y="238" width="84" height="28" rx="14" fill="url(#nodeB)"/>
+  <text x="784" y="257" class="pill">Node B</text>
+  <rect x="760" y="296" width="96" height="42" rx="14" fill="#0EA5E9" fill-opacity="0.12" stroke="#0EA5E9"/>
+  <text x="776" y="322" class="tag">App Pod</text>
+  <text x="751" y="356" class="small">podAntiAffinity:</text>
+  <text x="751" y="378" class="small">副本尽量打散</text>
+
+  <path d="M662 306C694 306 703 306 736 317" stroke="#F97316" stroke-width="4" stroke-linecap="round"/>
+  <path d="M660 360C698 360 700 360 736 332" stroke="#0EA5E9" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 8"/>
+
+  <rect x="280" y="388" width="118" height="36" rx="18" fill="#F97316"/>
+  <text x="312" y="411" class="pill">NoSchedule</text>
+  <path d="M400 406H484" stroke="#F97316" stroke-width="4" stroke-linecap="round"/>
+  <path d="M472 396L488 406L472 416" stroke="#F97316" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="506" y="412" class="text">taint / toleration</text>
+  <text x="506" y="438" class="small">节点主动设门槛，Pod 需要显式容忍</text>
+</svg>
