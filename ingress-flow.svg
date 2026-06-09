@@ -1,0 +1,19 @@
+<svg width="960" height="380" viewBox="0 0 960 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="380" rx="24" fill="#FFF8ED"/>
+  <rect x="56" y="146" width="166" height="92" rx="18" fill="#FFFFFF" stroke="#FB923C" stroke-width="2"/>
+  <text x="96" y="200" fill="#9A3412" font-family="Arial, sans-serif" font-size="28" font-weight="700">Client</text>
+
+  <rect x="314" y="120" width="238" height="144" rx="22" fill="#FFFFFF" stroke="#F59E0B" stroke-width="2"/>
+  <text x="344" y="172" fill="#9A3412" font-family="Arial, sans-serif" font-size="28" font-weight="700">Ingress Controller</text>
+  <text x="364" y="206" fill="#7C2D12" font-family="Arial, sans-serif" font-size="18">读取 Ingress 规则并转发</text>
+
+  <rect x="664" y="78" width="200" height="84" rx="18" fill="#FFFFFF" stroke="#EA580C" stroke-width="2"/>
+  <text x="724" y="128" fill="#9A3412" font-family="Arial, sans-serif" font-size="26" font-weight="700">Service A</text>
+
+  <rect x="664" y="218" width="200" height="84" rx="18" fill="#FFFFFF" stroke="#FB923C" stroke-width="2"/>
+  <text x="724" y="268" fill="#9A3412" font-family="Arial, sans-serif" font-size="26" font-weight="700">Service B</text>
+
+  <path d="M222 192H314" stroke="#FB923C" stroke-width="4" stroke-linecap="round"/>
+  <path d="M552 160H664" stroke="#F97316" stroke-width="4" stroke-linecap="round"/>
+  <path d="M552 224H664" stroke="#FB923C" stroke-width="4" stroke-linecap="round"/>
+</svg>
