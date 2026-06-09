@@ -1,0 +1,33 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" rx="28" fill="#F8FAFC"/>
+  <text x="600" y="74" text-anchor="middle" fill="#0F172A" font-size="30" font-family="Arial, sans-serif" font-weight="700">RollingUpdate 策略</text>
+  <text x="600" y="112" text-anchor="middle" fill="#475569" font-size="16" font-family="Arial, sans-serif">通过 maxSurge 与 maxUnavailable 控制升级期间可新增和可中断的 Pod 数量</text>
+  <rect x="120" y="180" width="440" height="360" rx="24" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+  <text x="340" y="224" text-anchor="middle" fill="#0F172A" font-size="24" font-family="Arial, sans-serif" font-weight="700">初始状态</text>
+  <text x="340" y="258" text-anchor="middle" fill="#475569" font-size="16" font-family="Arial, sans-serif">replicas = 3</text>
+  <g>
+    <rect x="180" y="310" width="100" height="100" rx="22" fill="#E2E8F0"/>
+    <rect x="300" y="310" width="100" height="100" rx="22" fill="#E2E8F0"/>
+    <rect x="420" y="310" width="100" height="100" rx="22" fill="#E2E8F0"/>
+    <text x="230" y="368" text-anchor="middle" fill="#475569" font-size="18" font-family="Arial, sans-serif" font-weight="700">旧</text>
+    <text x="350" y="368" text-anchor="middle" fill="#475569" font-size="18" font-family="Arial, sans-serif" font-weight="700">旧</text>
+    <text x="470" y="368" text-anchor="middle" fill="#475569" font-size="18" font-family="Arial, sans-serif" font-weight="700">旧</text>
+  </g>
+  <rect x="640" y="180" width="440" height="360" rx="24" fill="#FFF7ED" stroke="#EA580C" stroke-width="3"/>
+  <text x="860" y="224" text-anchor="middle" fill="#9A3412" font-size="24" font-family="Arial, sans-serif" font-weight="700">升级中</text>
+  <text x="860" y="258" text-anchor="middle" fill="#7C2D12" font-size="16" font-family="Arial, sans-serif">maxSurge = 1 / maxUnavailable = 1</text>
+  <g>
+    <rect x="690" y="300" width="90" height="90" rx="20" fill="#E2E8F0"/>
+    <rect x="800" y="300" width="90" height="90" rx="20" fill="#E2E8F0"/>
+    <rect x="910" y="300" width="90" height="90" rx="20" fill="#FDBA74"/>
+    <rect x="745" y="420" width="90" height="90" rx="20" fill="#FDBA74"/>
+    <rect x="855" y="420" width="90" height="90" rx="20" fill="#FCD34D" stroke="#FB923C" stroke-width="3" stroke-dasharray="8 8"/>
+    <text x="735" y="351" text-anchor="middle" fill="#475569" font-size="18" font-family="Arial, sans-serif" font-weight="700">旧</text>
+    <text x="845" y="351" text-anchor="middle" fill="#475569" font-size="18" font-family="Arial, sans-serif" font-weight="700">旧</text>
+    <text x="955" y="351" text-anchor="middle" fill="#7C2D12" font-size="18" font-family="Arial, sans-serif" font-weight="700">新</text>
+    <text x="790" y="471" text-anchor="middle" fill="#7C2D12" font-size="18" font-family="Arial, sans-serif" font-weight="700">新</text>
+    <text x="900" y="471" text-anchor="middle" fill="#92400E" font-size="15" font-family="Arial, sans-serif" font-weight="700">暂不可用</text>
+  </g>
+  <rect x="250" y="590" width="700" height="70" rx="20" fill="#FFEDD5"/>
+  <text x="600" y="633" text-anchor="middle" fill="#9A3412" font-size="18" font-family="Arial, sans-serif" font-weight="700">升级时允许先多起 1 个新 Pod，同时最多允许 1 个 Pod 暂时不可用</text>
+</svg>
