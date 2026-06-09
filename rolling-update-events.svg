@@ -1,0 +1,32 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="760" rx="28" fill="#F8FAFC"/>
+  <text x="600" y="70" text-anchor="middle" fill="#0F172A" font-size="30" font-family="Arial, sans-serif" font-weight="700">滚动更新事件变化</text>
+  <text x="600" y="108" text-anchor="middle" fill="#475569" font-size="16" font-family="Arial, sans-serif">Deployment 会交替扩容新 ReplicaSet、缩容旧 ReplicaSet，直到全部切换完成</text>
+  <defs>
+    <marker id="arrow-events" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#FB923C"/>
+    </marker>
+  </defs>
+  <g font-family="Arial, sans-serif">
+    <rect x="130" y="180" width="940" height="92" rx="22" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+    <circle cx="180" cy="226" r="18" fill="#FDBA74"/>
+    <text x="180" y="232" text-anchor="middle" fill="#7C2D12" font-size="16" font-weight="700">1</text>
+    <text x="235" y="220" fill="#0F172A" font-size="22" font-weight="700">Scaled up new ReplicaSet</text>
+    <text x="235" y="248" fill="#475569" font-size="16">先创建新的 Pod，让新版本开始接管流量</text>
+    <rect x="130" y="310" width="940" height="92" rx="22" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+    <circle cx="180" cy="356" r="18" fill="#FDBA74"/>
+    <text x="180" y="362" text-anchor="middle" fill="#7C2D12" font-size="16" font-weight="700">2</text>
+    <text x="235" y="350" fill="#0F172A" font-size="22" font-weight="700">Scaled down old ReplicaSet</text>
+    <text x="235" y="378" fill="#475569" font-size="16">旧 Pod 被逐步缩容，避免一次性全部中断</text>
+    <rect x="130" y="440" width="940" height="92" rx="22" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+    <circle cx="180" cy="486" r="18" fill="#FDBA74"/>
+    <text x="180" y="492" text-anchor="middle" fill="#7C2D12" font-size="16" font-weight="700">3</text>
+    <text x="235" y="480" fill="#0F172A" font-size="22" font-weight="700">Repeated until desired replicas are ready</text>
+    <text x="235" y="508" fill="#475569" font-size="16">重复“新建一个 / 缩掉一个”的节奏，直到新版本副本全部就绪</text>
+  </g>
+  <path d="M600 272V310" stroke="#FB923C" stroke-width="4" marker-end="url(#arrow-events)"/>
+  <path d="M600 402V440" stroke="#FB923C" stroke-width="4" marker-end="url(#arrow-events)"/>
+  <rect x="230" y="600" width="740" height="80" rx="24" fill="#FFF7ED" stroke="#FDBA74" stroke-width="2"/>
+  <text x="600" y="635" text-anchor="middle" fill="#9A3412" font-size="20" font-family="Arial, sans-serif" font-weight="700">最终结果</text>
+  <text x="600" y="664" text-anchor="middle" fill="#7C2D12" font-size="16" font-family="Arial, sans-serif">旧 ReplicaSet 副本降到 0，新 ReplicaSet 副本升到期望值，Deployment 完成发布</text>
+</svg>
