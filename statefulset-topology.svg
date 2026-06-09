@@ -1,0 +1,36 @@
+<svg width="1280" height="760" viewBox="0 0 1280 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="760" rx="28" fill="#F8FAFC"/>
+  <text x="640" y="74" text-anchor="middle" fill="#0F172A" font-size="30" font-family="Arial, sans-serif" font-weight="700">StatefulSet 拓扑结构</text>
+  <text x="640" y="110" text-anchor="middle" fill="#475569" font-size="16" font-family="Arial, sans-serif">稳定网络身份来自 Headless Service，稳定存储来自 PVC / PV 绑定</text>
+  <defs>
+    <marker id="arrow-sts" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#FB923C"/>
+    </marker>
+  </defs>
+  <rect x="460" y="150" width="360" height="92" rx="22" fill="#FFF7ED" stroke="#EA580C" stroke-width="3"/>
+  <text x="640" y="192" text-anchor="middle" fill="#9A3412" font-size="24" font-family="Arial, sans-serif" font-weight="700">StatefulSet</text>
+  <text x="640" y="224" text-anchor="middle" fill="#7C2D12" font-size="16" font-family="Arial, sans-serif">管理顺序、身份与副本</text>
+  <path d="M640 242V300" stroke="#FB923C" stroke-width="4" marker-end="url(#arrow-sts)"/>
+  <rect x="440" y="320" width="400" height="82" rx="20" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+  <text x="640" y="356" text-anchor="middle" fill="#0F172A" font-size="22" font-family="Arial, sans-serif" font-weight="700">Headless Service</text>
+  <text x="640" y="384" text-anchor="middle" fill="#475569" font-size="15" font-family="Arial, sans-serif">clusterIP: None / 直接暴露 Pod DNS</text>
+  <path d="M640 402V448" stroke="#FB923C" stroke-width="4" marker-end="url(#arrow-sts)"/>
+  <g>
+    <rect x="130" y="470" width="300" height="160" rx="24" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+    <text x="280" y="510" text-anchor="middle" fill="#0F172A" font-size="22" font-family="Arial, sans-serif" font-weight="700">web-0 Pod</text>
+    <rect x="190" y="530" width="180" height="38" rx="12" fill="#FFEDD5"/>
+    <text x="280" y="554" text-anchor="middle" fill="#9A3412" font-size="16" font-family="Arial, sans-serif">web-0.nginx.default.svc</text>
+    <rect x="220" y="584" width="120" height="30" rx="10" fill="#FED7AA"/>
+    <text x="280" y="604" text-anchor="middle" fill="#7C2D12" font-size="15" font-family="Arial, sans-serif">PVC: www-web-0</text>
+    <rect x="460" y="470" width="360" height="160" rx="24" fill="#FFF7ED" stroke="#FDBA74" stroke-width="2"/>
+    <text x="640" y="510" text-anchor="middle" fill="#9A3412" font-size="22" font-family="Arial, sans-serif" font-weight="700">稳定网络身份</text>
+    <text x="640" y="548" text-anchor="middle" fill="#7C2D12" font-size="16" font-family="Arial, sans-serif">Pod 名称和 DNS 标识固定</text>
+    <text x="640" y="578" text-anchor="middle" fill="#7C2D12" font-size="16" font-family="Arial, sans-serif">即使 Pod 重建，访问地址仍然不变</text>
+    <rect x="850" y="470" width="300" height="160" rx="24" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+    <text x="1000" y="510" text-anchor="middle" fill="#0F172A" font-size="22" font-family="Arial, sans-serif" font-weight="700">web-1 Pod</text>
+    <rect x="910" y="530" width="180" height="38" rx="12" fill="#FFEDD5"/>
+    <text x="1000" y="554" text-anchor="middle" fill="#9A3412" font-size="16" font-family="Arial, sans-serif">web-1.nginx.default.svc</text>
+    <rect x="940" y="584" width="120" height="30" rx="10" fill="#FED7AA"/>
+    <text x="1000" y="604" text-anchor="middle" fill="#7C2D12" font-size="15" font-family="Arial, sans-serif">PVC: www-web-1</text>
+  </g>
+</svg>
