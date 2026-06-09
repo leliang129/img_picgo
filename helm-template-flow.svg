@@ -1,0 +1,65 @@
+<svg width="980" height="560" viewBox="0 0 980 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="980" y2="560" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF7ED"/>
+      <stop offset="1" stop-color="#EFF6FF"/>
+    </linearGradient>
+    <linearGradient id="orange" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#F97316"/>
+      <stop offset="1" stop-color="#FDBA74"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#0EA5E9"/>
+      <stop offset="1" stop-color="#7DD3FC"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#64748B" flood-opacity="0.18"/>
+    </filter>
+    <style>
+      .title { font: 700 28px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #0F172A; }
+      .text { font: 500 18px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #334155; }
+      .small { font: 500 16px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #475569; }
+      .label { font: 700 15px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #0F172A; }
+      .pill { font: 700 14px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: white; }
+    </style>
+  </defs>
+
+  <rect width="980" height="560" rx="28" fill="url(#bg)"/>
+  <text x="44" y="60" class="title">Helm 模板渲染</text>
+  <text x="44" y="92" class="text">模板并不是简单替换字符串，而是把内置对象、values 和函数一起参与渲染，输出最终 YAML。</text>
+
+  <rect x="52" y="146" width="240" height="290" rx="24" fill="white" filter="url(#shadow)"/>
+  <rect x="84" y="176" width="108" height="30" rx="15" fill="url(#orange)"/>
+  <text x="116" y="196" class="pill">输入</text>
+  <text x="84" y="244" class="text">Chart 文件</text>
+  <text x="84" y="272" class="small">templates/*.yaml</text>
+  <text x="84" y="298" class="small">_helpers.tpl</text>
+  <text x="84" y="324" class="small">values.yaml</text>
+  <text x="84" y="350" class="small">附加文件 / NOTES.txt</text>
+
+  <rect x="370" y="146" width="240" height="290" rx="24" fill="white" filter="url(#shadow)"/>
+  <rect x="402" y="176" width="108" height="30" rx="15" fill="url(#blue)"/>
+  <text x="434" y="196" class="pill">运行时</text>
+  <text x="402" y="244" class="text">内置对象</text>
+  <text x="402" y="272" class="small">.Values / .Release / .Chart</text>
+  <text x="402" y="298" class="small">函数 / 管道 / 条件 / 循环</text>
+  <text x="402" y="324" class="small">变量 / include / define</text>
+  <text x="402" y="350" class="small">Hooks / 子 Chart / Globals</text>
+
+  <rect x="688" y="146" width="240" height="290" rx="24" fill="white" filter="url(#shadow)"/>
+  <rect x="720" y="176" width="108" height="30" rx="15" fill="url(#orange)"/>
+  <text x="752" y="196" class="pill">输出</text>
+  <text x="720" y="244" class="text">最终资源</text>
+  <text x="720" y="272" class="small">Deployment</text>
+  <text x="720" y="298" class="small">Service</text>
+  <text x="720" y="324" class="small">Ingress</text>
+  <text x="720" y="350" class="small">ConfigMap / Secret / Job ...</text>
+
+  <path d="M292 292H370" stroke="#F97316" stroke-width="4" stroke-linecap="round"/>
+  <path d="M354 282L370 292L354 302" stroke="#F97316" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M610 292H688" stroke="#0EA5E9" stroke-width="4" stroke-linecap="round"/>
+  <path d="M672 282L688 292L672 302" stroke="#0EA5E9" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="334" y="466" width="316" height="40" rx="20" fill="#0F172A"/>
+  <text x="386" y="492" class="pill">常用验证：helm lint / helm template / --dry-run --debug</text>
+</svg>
