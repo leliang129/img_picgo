@@ -1,0 +1,37 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" rx="28" fill="#F8FAFC"/>
+  <text x="600" y="70" text-anchor="middle" fill="#0F172A" font-size="30" font-family="Arial, sans-serif" font-weight="700">ReplicaSet 与 selector</text>
+  <text x="600" y="108" text-anchor="middle" fill="#475569" font-size="16" font-family="Arial, sans-serif">ReplicaSet 只管理标签匹配的 Pod，并把副本数维持在目标值</text>
+  <defs>
+    <marker id="arrow-rs" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#FB923C"/>
+    </marker>
+  </defs>
+  <rect x="90" y="220" width="300" height="220" rx="24" fill="#FFF7ED" stroke="#EA580C" stroke-width="3"/>
+  <text x="240" y="268" text-anchor="middle" fill="#9A3412" font-size="24" font-family="Arial, sans-serif" font-weight="700">ReplicaSet</text>
+  <text x="240" y="310" text-anchor="middle" fill="#7C2D12" font-size="18" font-family="Arial, sans-serif">replicas: 3</text>
+  <text x="240" y="344" text-anchor="middle" fill="#7C2D12" font-size="18" font-family="Arial, sans-serif">selector:</text>
+  <rect x="150" y="365" width="180" height="46" rx="14" fill="#FFFFFF" stroke="#FDBA74" stroke-width="2"/>
+  <text x="240" y="394" text-anchor="middle" fill="#C2410C" font-size="18" font-family="Arial, sans-serif" font-weight="700">app: nginx</text>
+  <path d="M390 288H540" stroke="#FB923C" stroke-width="4" marker-end="url(#arrow-rs)"/>
+  <path d="M390 372H540" stroke="#FB923C" stroke-width="4" marker-end="url(#arrow-rs)"/>
+  <g>
+    <rect x="560" y="180" width="180" height="108" rx="20" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+    <text x="650" y="220" text-anchor="middle" fill="#0F172A" font-size="20" font-family="Arial, sans-serif" font-weight="700">Pod A</text>
+    <rect x="596" y="236" width="108" height="32" rx="12" fill="#FFEDD5"/>
+    <text x="650" y="257" text-anchor="middle" fill="#9A3412" font-size="16" font-family="Arial, sans-serif">app=nginx</text>
+    <rect x="790" y="180" width="180" height="108" rx="20" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+    <text x="880" y="220" text-anchor="middle" fill="#0F172A" font-size="20" font-family="Arial, sans-serif" font-weight="700">Pod B</text>
+    <rect x="826" y="236" width="108" height="32" rx="12" fill="#FFEDD5"/>
+    <text x="880" y="257" text-anchor="middle" fill="#9A3412" font-size="16" font-family="Arial, sans-serif">app=nginx</text>
+    <rect x="560" y="340" width="180" height="108" rx="20" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+    <text x="650" y="380" text-anchor="middle" fill="#0F172A" font-size="20" font-family="Arial, sans-serif" font-weight="700">Pod C</text>
+    <rect x="596" y="396" width="108" height="32" rx="12" fill="#FFEDD5"/>
+    <text x="650" y="417" text-anchor="middle" fill="#9A3412" font-size="16" font-family="Arial, sans-serif">app=nginx</text>
+    <rect x="790" y="340" width="180" height="108" rx="20" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="8 8"/>
+    <text x="880" y="380" text-anchor="middle" fill="#0F172A" font-size="20" font-family="Arial, sans-serif" font-weight="700">Pod D</text>
+    <rect x="826" y="396" width="108" height="32" rx="12" fill="#E2E8F0"/>
+    <text x="880" y="417" text-anchor="middle" fill="#475569" font-size="16" font-family="Arial, sans-serif">app=demo</text>
+  </g>
+  <text x="880" y="482" text-anchor="middle" fill="#475569" font-size="15" font-family="Arial, sans-serif">只有带有 <tspan font-weight="700">app=nginx</tspan> 的 Pod 会被当前 ReplicaSet 管理</text>
+</svg>
