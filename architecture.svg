@@ -1,0 +1,73 @@
+<svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;">
+  <defs>
+    <linearGradient id="exp" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F1F5F9"/><stop offset="1" stop-color="#E2E8F0"/></linearGradient>
+    <linearGradient id="prom" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#DBEAFE"/><stop offset="1" stop-color="#BFDBFE"/></linearGradient>
+    <linearGradient id="alert" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FEE2E2"/><stop offset="1" stop-color="#FECACA"/></linearGradient>
+    <linearGradient id="grafana" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EDE9FE"/><stop offset="1" stop-color="#DDD6FE"/></linearGradient>
+  </defs>
+
+  <!-- Exporter 层 -->
+  <rect x="10" y="10" width="200" height="54" rx="10" fill="url(#exp)" stroke="#CBD5E1" stroke-width="1.5"/>
+  <text x="110" y="34" text-anchor="middle" font-size="13" font-weight="700" fill="#1E293B">Node Exporter</text>
+  <text x="110" y="52" text-anchor="middle" font-size="11" fill="#64748B">主机指标采集</text>
+
+  <rect x="260" y="10" width="200" height="54" rx="10" fill="url(#exp)" stroke="#CBD5E1" stroke-width="1.5"/>
+  <text x="360" y="34" text-anchor="middle" font-size="13" font-weight="700" fill="#1E293B">MySQL Exporter</text>
+  <text x="360" y="52" text-anchor="middle" font-size="11" fill="#64748B">数据库指标采集</text>
+
+  <rect x="510" y="10" width="200" height="54" rx="10" fill="url(#exp)" stroke="#CBD5E1" stroke-width="1.5"/>
+  <text x="610" y="34" text-anchor="middle" font-size="13" font-weight="700" fill="#1E293B">自定义应用</text>
+  <text x="610" y="52" text-anchor="middle" font-size="11" fill="#64748B">/metrics 端点</text>
+
+  <!-- 箭头：Exporter → Prometheus -->
+  <line x1="110" y1="64" x2="110" y2="100" stroke="#3B82F6" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="120" y="86" font-size="10" fill="#3B82F6" font-weight="600">scrape</text>
+  <line x1="360" y1="64" x2="360" y2="100" stroke="#3B82F6" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="370" y="86" font-size="10" fill="#3B82F6" font-weight="600">scrape</text>
+  <line x1="610" y1="64" x2="610" y2="100" stroke="#3B82F6" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="620" y="86" font-size="10" fill="#3B82F6" font-weight="600">scrape</text>
+
+  <!-- Prometheus 主框 -->
+  <rect x="60" y="100" width="600" height="110" rx="12" fill="url(#prom)" stroke="#93C5FD" stroke-width="2"/>
+  <text x="360" y="122" text-anchor="middle" font-size="16" font-weight="800" fill="#1E40AF">Prometheus Server</text>
+
+  <!-- 子模块 -->
+  <rect x="80" y="135" width="130" height="56" rx="8" fill="#FFFFFF" stroke="#BFDBFE" stroke-width="1"/>
+  <text x="145" y="158" text-anchor="middle" font-size="14" font-weight="700" fill="#1D4ED8">TSDB</text>
+  <text x="145" y="178" text-anchor="middle" font-size="11" fill="#64748B">时序数据库</text>
+
+  <rect x="225" y="135" width="130" height="56" rx="8" fill="#FFFFFF" stroke="#BFDBFE" stroke-width="1"/>
+  <text x="290" y="158" text-anchor="middle" font-size="14" font-weight="700" fill="#1D4ED8">PromQL</text>
+  <text x="290" y="178" text-anchor="middle" font-size="11" fill="#64748B">查询引擎</text>
+
+  <rect x="370" y="135" width="130" height="56" rx="8" fill="#FFFFFF" stroke="#BFDBFE" stroke-width="1"/>
+  <text x="435" y="158" text-anchor="middle" font-size="14" font-weight="700" fill="#1D4ED8">告警规则</text>
+  <text x="435" y="178" text-anchor="middle" font-size="11" fill="#64748B">Rule Eval</text>
+
+  <rect x="515" y="135" width="130" height="56" rx="8" fill="#FFFFFF" stroke="#BFDBFE" stroke-width="1"/>
+  <text x="580" y="158" text-anchor="middle" font-size="14" font-weight="700" fill="#1D4ED8">服务发现</text>
+  <text x="580" y="178" text-anchor="middle" font-size="11" fill="#64748B">K8s/Consul</text>
+
+  <!-- 箭头：Prometheus → Alertmanager / Grafana -->
+  <line x1="200" y1="210" x2="200" y2="260" stroke="#EF4444" stroke-width="2" marker-end="url(#arrow-red)"/>
+  <text x="210" y="240" font-size="10" fill="#EF4444" font-weight="600">alert</text>
+
+  <line x1="520" y1="210" x2="520" y2="260" stroke="#7C3AED" stroke-width="2" marker-end="url(#arrow-purple)"/>
+  <text x="530" y="240" font-size="10" fill="#7C3AED" font-weight="600">query</text>
+
+  <!-- Alertmanager -->
+  <rect x="80" y="260" width="240" height="60" rx="10" fill="url(#alert)" stroke="#FCA5A5" stroke-width="1.5"/>
+  <text x="200" y="286" text-anchor="middle" font-size="15" font-weight="700" fill="#991B1B">Alertmanager</text>
+  <text x="200" y="306" text-anchor="middle" font-size="11" fill="#B91C1C">告警分组 · 静默 · 路由 · 通知</text>
+
+  <!-- Grafana -->
+  <rect x="400" y="260" width="240" height="60" rx="10" fill="url(#grafana)" stroke="#C4B5FD" stroke-width="1.5"/>
+  <text x="520" y="286" text-anchor="middle" font-size="15" font-weight="700" fill="#5B21B6">Grafana</text>
+  <text x="520" y="306" text-anchor="middle" font-size="11" fill="#6D28D9">仪表盘 · 可视化 · PromQL 数据源</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#3B82F6"/></marker>
+    <marker id="arrow-red" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#EF4444"/></marker>
+    <marker id="arrow-purple" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#7C3AED"/></marker>
+  </defs>
+</svg>
