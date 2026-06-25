@@ -1,0 +1,33 @@
+<svg viewBox="0 0 420 370" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#DC2626"/></marker>
+  </defs>
+
+  <rect x="110" y="8" width="200" height="38" rx="10" fill="#DBEAFE" stroke="#93C5FD" stroke-width="1.5"/>
+  <text x="210" y="32" text-anchor="middle" font-size="13" font-weight="700" fill="#1E40AF">开发者 git push</text>
+  <line x1="210" y1="46" x2="210" y2="64" stroke="#DC2626" stroke-width="2" marker-end="url(#arr)"/>
+
+  <rect x="90" y="68" width="240" height="38" rx="10" fill="#FEF3C7" stroke="#FCD34D" stroke-width="1.5"/>
+  <text x="210" y="87" text-anchor="middle" font-size="13" font-weight="700" fill="#92400E">GitLab</text>
+  <text x="210" y="101" text-anchor="middle" font-size="10" fill="#B45309">读取 .gitlab-ci.yml</text>
+  <line x1="210" y1="106" x2="210" y2="124" stroke="#DC2626" stroke-width="2" marker-end="url(#arr)"/>
+
+  <rect x="90" y="128" width="240" height="38" rx="10" fill="#EDE9FE" stroke="#C4B5FD" stroke-width="1.5"/>
+  <text x="210" y="147" text-anchor="middle" font-size="13" font-weight="700" fill="#5B21B6">Sidekiq</text>
+  <text x="210" y="161" text-anchor="middle" font-size="10" fill="#6D28D9">创建 Pipeline Job</text>
+  <line x1="210" y1="166" x2="210" y2="184" stroke="#DC2626" stroke-width="2" marker-end="url(#arr)"/>
+
+  <rect x="70" y="188" width="280" height="38" rx="10" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1.5"/>
+  <text x="210" y="207" text-anchor="middle" font-size="13" font-weight="700" fill="#166534">GitLab Runner</text>
+  <text x="210" y="221" text-anchor="middle" font-size="10" fill="#15803D">轮询拿到 Job</text>
+  <line x1="210" y1="226" x2="210" y2="244" stroke="#DC2626" stroke-width="2" marker-end="url(#arr)"/>
+
+  <rect x="60" y="248" width="300" height="38" rx="10" fill="#DBEAFE" stroke="#93C5FD" stroke-width="1.5"/>
+  <text x="210" y="267" text-anchor="middle" font-size="13" font-weight="700" fill="#1E40AF">Runner 执行 (Docker/Shell/K8s)</text>
+  <text x="210" y="281" text-anchor="middle" font-size="10" fill="#3B82F6">构建 · 测试 · 部署</text>
+  <line x1="210" y1="286" x2="210" y2="308" stroke="#DC2626" stroke-width="2" marker-end="url(#arr)"/>
+
+  <rect x="110" y="314" width="200" height="38" rx="10" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="1.5"/>
+  <text x="210" y="333" text-anchor="middle" font-size="13" font-weight="700" fill="#475569">Runner 上报结果 → GitLab</text>
+  <text x="210" y="347" text-anchor="middle" font-size="10" fill="#64748B">Pipeline 状态 / 产物 / 日志</text>
+</svg>
