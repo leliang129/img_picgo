@@ -1,0 +1,66 @@
+<svg viewBox="0 0 760 420" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;">
+  <defs>
+    <linearGradient id="scanner" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F8FAFC"/><stop offset="1" stop-color="#E2E8F0"/></linearGradient>
+    <linearGradient id="server" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#DBEAFE"/><stop offset="1" stop-color="#93C5FD"/></linearGradient>
+    <linearGradient id="pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#DCFCE7"/><stop offset="1" stop-color="#86EFAC"/></linearGradient>
+    <linearGradient id="es" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FEF3C7"/><stop offset="1" stop-color="#FCD34D"/></linearGradient>
+    <linearGradient id="ce" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EDE9FE"/><stop offset="1" stop-color="#C4B5FD"/></linearGradient>
+    <marker id="down" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#3B82F6"/></marker>
+  </defs>
+
+  <!-- ===== Scanner 层 ===== -->
+  <rect x="20" y="14" width="220" height="60" rx="12" fill="url(#scanner)" stroke="#CBD5E1" stroke-width="2"/>
+  <text x="130" y="42" text-anchor="middle" font-size="15" font-weight="700" fill="#1E293B">SonarScanner CLI</text>
+  <text x="130" y="62" text-anchor="middle" font-size="12" fill="#64748B">sonar-scanner 命令行</text>
+
+  <rect x="270" y="14" width="220" height="60" rx="12" fill="url(#scanner)" stroke="#CBD5E1" stroke-width="2"/>
+  <text x="380" y="42" text-anchor="middle" font-size="15" font-weight="700" fill="#1E293B">构建工具集成</text>
+  <text x="380" y="62" text-anchor="middle" font-size="12" fill="#64748B">Maven / Gradle Plugin</text>
+
+  <rect x="520" y="14" width="220" height="60" rx="12" fill="url(#scanner)" stroke="#CBD5E1" stroke-width="2"/>
+  <text x="630" y="42" text-anchor="middle" font-size="15" font-weight="700" fill="#1E293B">CI / CD 集成</text>
+  <text x="630" y="62" text-anchor="middle" font-size="12" fill="#64748B">Jenkins / GitHub Actions</text>
+
+  <!-- 箭头 Scanner → Server -->
+  <line x1="130" y1="74" x2="130" y2="112" stroke="#3B82F6" stroke-width="2.5" marker-end="url(#down)"/>
+  <line x1="380" y1="74" x2="380" y2="112" stroke="#3B82F6" stroke-width="2.5" marker-end="url(#down)"/>
+  <line x1="630" y1="74" x2="630" y2="112" stroke="#3B82F6" stroke-width="2.5" marker-end="url(#down)"/>
+  <text x="310" y="98" text-anchor="middle" font-size="11" fill="#3B82F6" font-weight="600">上报分析结果 (Report)</text>
+
+  <!-- ===== SonarQube Server 主框 ===== -->
+  <rect x="20" y="118" width="720" height="200" rx="16" fill="url(#server)" stroke="#60A5FA" stroke-width="2"/>
+  <text x="380" y="148" text-anchor="middle" font-size="18" font-weight="800" fill="#1E40AF">SonarQube Server</text>
+
+  <!-- Web + API 行 -->
+  <rect x="45" y="162" width="210" height="52" rx="10" fill="#FFFFFF" stroke="#BFDBFE" stroke-width="1.5"/>
+  <text x="150" y="186" text-anchor="middle" font-size="14" font-weight="700" fill="#1D4ED8">Web API / UI</text>
+  <text x="150" y="204" text-anchor="middle" font-size="11" fill="#64748B">REST API · 管理界面 · 仪表盘</text>
+
+  <!-- Compute Engine -->
+  <rect x="275" y="162" width="210" height="52" rx="10" fill="url(#ce)" stroke="#A78BFA" stroke-width="1.5"/>
+  <text x="380" y="186" text-anchor="middle" font-size="14" font-weight="700" fill="#5B21B6">Compute Engine</text>
+  <text x="380" y="204" text-anchor="middle" font-size="11" fill="#6D28D9">异步分析 · 技术债 · 质量门禁</text>
+
+  <!-- 规则/指标 -->
+  <rect x="505" y="162" width="210" height="52" rx="10" fill="#FFFFFF" stroke="#BFDBFE" stroke-width="1.5"/>
+  <text x="610" y="186" text-anchor="middle" font-size="14" font-weight="700" fill="#1D4ED8">规则引擎 + 指标</text>
+  <text x="610" y="204" text-anchor="middle" font-size="11" fill="#64748B">Quality Profile · Quality Gate</text>
+
+  <!-- PostgreSQL -->
+  <rect x="45" y="240" width="330" height="60" rx="12" fill="url(#pg)" stroke="#4ADE80" stroke-width="1.5"/>
+  <text x="210" y="266" text-anchor="middle" font-size="15" font-weight="800" fill="#166534">PostgreSQL</text>
+  <text x="210" y="288" text-anchor="middle" font-size="12" fill="#15803D">项目 · 用户 · 规则 · Issue · 配置 · Token</text>
+
+  <!-- Elasticsearch -->
+  <rect x="405" y="240" width="310" height="60" rx="12" fill="url(#es)" stroke="#FBBF24" stroke-width="1.5"/>
+  <text x="560" y="266" text-anchor="middle" font-size="15" font-weight="800" fill="#92400E">Elasticsearch</text>
+  <text x="560" y="288" text-anchor="middle" font-size="12" fill="#B45309">代码索引 · 全文搜索 · 跨文件查询</text>
+
+  <!-- 底部说明 -->
+  <rect x="160" y="340" width="440" height="30" rx="8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="380" y="360" text-anchor="middle" font-size="13" fill="#475569" font-weight="600">Scanner 采集 → Server 分析 → PostgreSQL 存储 + ES 索引</text>
+
+  <!-- 连接线 Server → Storage -->
+  <line x1="210" y1="214" x2="210" y2="235" stroke="#16A34A" stroke-width="1.5"/>
+  <line x1="560" y1="214" x2="560" y2="235" stroke="#D97706" stroke-width="1.5"/>
+</svg>
