@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 200">
+  <rect width="680" height="200" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="340" y="26" text-anchor="middle" fill="#334155" font-family="sans-serif" font-size="14" font-weight="bold">DevOps 持续循环</text>
+
+  <defs>
+    <marker id="da" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M0,1 L9,5 L0,9" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- Plan -->
+  <rect x="25" y="55" width="90" height="36" rx="6" fill="#3b82f6"/>
+  <text x="70" y="78" text-anchor="middle" fill="white" font-family="sans-serif" font-size="13" font-weight="bold">Plan</text>
+  <line x1="115" y1="73" x2="148" y2="73" stroke="#94a3b8" stroke-width="1.2" marker-end="url(#da)"/>
+
+  <!-- Code -->
+  <rect x="153" y="55" width="90" height="36" rx="6" fill="#8b5cf6"/>
+  <text x="198" y="78" text-anchor="middle" fill="white" font-family="sans-serif" font-size="13" font-weight="bold">Code</text>
+  <line x1="243" y1="73" x2="276" y2="73" stroke="#94a3b8" stroke-width="1.2" marker-end="url(#da)"/>
+
+  <!-- Build -->
+  <rect x="281" y="55" width="90" height="36" rx="6" fill="#06b6d4"/>
+  <text x="326" y="78" text-anchor="middle" fill="white" font-family="sans-serif" font-size="13" font-weight="bold">Build</text>
+  <line x1="371" y1="73" x2="404" y2="73" stroke="#94a3b8" stroke-width="1.2" marker-end="url(#da)"/>
+
+  <!-- Test -->
+  <rect x="409" y="55" width="90" height="36" rx="6" fill="#22c55e"/>
+  <text x="454" y="78" text-anchor="middle" fill="white" font-family="sans-serif" font-size="13" font-weight="bold">Test</text>
+  <line x1="499" y1="73" x2="532" y2="73" stroke="#94a3b8" stroke-width="1.2" marker-end="url(#da)"/>
+
+  <!-- Release -->
+  <rect x="537" y="55" width="100" height="36" rx="6" fill="#eab308"/>
+  <text x="587" y="78" text-anchor="middle" fill="white" font-family="sans-serif" font-size="13" font-weight="bold">Release</text>
+
+  <!-- Bottom row right to left for loop -->
+  <line x1="587" y1="91" x2="587" y2="140" stroke="#94a3b8" stroke-width="1.2"/>
+
+  <!-- Deploy -->
+  <rect x="537" y="145" width="100" height="36" rx="6" fill="#f97316"/>
+  <text x="587" y="168" text-anchor="middle" fill="white" font-family="sans-serif" font-size="13" font-weight="bold">Deploy</text>
+  <line x1="537" y1="163" x2="492" y2="163" stroke="#94a3b8" stroke-width="1.2" marker-end="url(#da)"/>
+
+  <!-- Operate -->
+  <rect x="387" y="145" width="100" height="36" rx="6" fill="#ef4444"/>
+  <text x="437" y="168" text-anchor="middle" fill="white" font-family="sans-serif" font-size="13" font-weight="bold">Operate</text>
+  <line x1="387" y1="163" x2="342" y2="163" stroke="#94a3b8" stroke-width="1.2" marker-end="url(#da)"/>
+
+  <!-- Monitor -->
+  <rect x="237" y="145" width="100" height="36" rx="6" fill="#ec4899"/>
+  <text x="287" y="168" text-anchor="middle" fill="white" font-family="sans-serif" font-size="13" font-weight="bold">Monitor</text>
+
+  <!-- Feedback loop back to Plan -->
+  <line x1="237" y1="163" x2="70" y2="163" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="6,3"/>
+  <line x1="70" y1="163" x2="70" y2="91" stroke="#94a3b8" stroke-width="1.2" marker-end="url(#da)" stroke-dasharray="6,3"/>
+  <text x="160" y="178" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="10">Feedback 反馈</text>
+</svg>
