@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 380">
+  <rect width="700" height="380" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+
+  <!-- Control Plane -->
+  <rect x="40" y="30" width="620" height="160" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="350" y="52" text-anchor="middle" fill="#2563eb" font-family="sans-serif" font-size="13" font-weight="bold">Control Plane</text>
+
+  <!-- API Server -->
+  <rect x="70" y="70" width="160" height="45" rx="6" fill="#2563eb"/>
+  <text x="150" y="97" text-anchor="middle" fill="white" font-family="monospace" font-size="12" font-weight="bold">API Server</text>
+
+  <!-- etcd -->
+  <rect x="270" y="70" width="160" height="45" rx="6" fill="#1e40af"/>
+  <text x="350" y="97" text-anchor="middle" fill="white" font-family="monospace" font-size="12" font-weight="bold">etcd</text>
+
+  <!-- Scheduler -->
+  <rect x="70" y="130" width="160" height="45" rx="6" fill="#3b82f6" opacity="0.85"/>
+  <text x="150" y="157" text-anchor="middle" fill="white" font-family="monospace" font-size="12" font-weight="bold">Scheduler</text>
+
+  <!-- Controller Manager -->
+  <rect x="270" y="130" width="160" height="45" rx="6" fill="#3b82f6" opacity="0.85"/>
+  <text x="350" y="157" text-anchor="middle" fill="white" font-family="monospace" font-size="11" font-weight="bold">Controller Manager</text>
+
+  <!-- kube-proxy in CP -->
+  <rect x="470" y="95" width="170" height="35" rx="5" fill="#60a5fa" opacity="0.6"/>
+  <text x="555" y="117" text-anchor="middle" fill="#1e3a5f" font-family="monospace" font-size="11">kube-proxy</text>
+
+  <!-- API Server → etcd -->
+  <line x1="230" y1="92" x2="270" y2="92" stroke="#64748b" stroke-width="1.2" marker-end="url(#ka2)"/>
+  <!-- API Server → Scheduler -->
+  <line x1="150" y1="115" x2="150" y2="130" stroke="#64748b" stroke-width="1.2" marker-end="url(#ka2)"/>
+  <!-- API Server → Controller Manager -->
+  <line x1="230" y1="92" x2="270" y2="152" stroke="#64748b" stroke-width="1.2" marker-end="url(#ka2)" stroke-dasharray="4,2"/>
+
+  <!-- Divider -->
+  <text x="350" y="210" text-anchor="middle" fill="#64748b" font-family="sans-serif" font-size="11">↕ kubelet 通过 API Server 上报 / 下发</text>
+
+  <!-- Worker Nodes -->
+  <rect x="40" y="230" width="620" height="130" rx="8" fill="#f0fdf4" stroke="#86efac" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="350" y="252" text-anchor="middle" fill="#16a34a" font-family="sans-serif" font-size="13" font-weight="bold">Worker Nodes</text>
+
+  <!-- Node 1 -->
+  <rect x="70" y="270" width="175" height="75" rx="6" fill="#22c55e" opacity="0.7"/>
+  <text x="157" y="292" text-anchor="middle" fill="white" font-family="monospace" font-size="11" font-weight="bold">kubelet</text>
+  <text x="157" y="310" text-anchor="middle" fill="white" font-family="sans-serif" font-size="10">kube-proxy</text>
+  <rect x="95" y="318" width="125" height="20" rx="4" fill="white" opacity="0.8"/>
+  <text x="157" y="333" text-anchor="middle" fill="#16a34a" font-family="sans-serif" font-size="9">Pod &amp;nbsp; Pod &amp;nbsp; Pod</text>
+
+  <!-- Node 2 -->
+  <rect x="270" y="270" width="175" height="75" rx="6" fill="#22c55e" opacity="0.7"/>
+  <text x="357" y="292" text-anchor="middle" fill="white" font-family="monospace" font-size="11" font-weight="bold">kubelet</text>
+  <text x="357" y="310" text-anchor="middle" fill="white" font-family="sans-serif" font-size="10">kube-proxy</text>
+  <rect x="295" y="318" width="125" height="20" rx="4" fill="white" opacity="0.8"/>
+  <text x="357" y="333" text-anchor="middle" fill="#16a34a" font-family="sans-serif" font-size="9">Pod &amp;nbsp; Pod &amp;nbsp; Pod</text>
+
+  <!-- Node 3 -->
+  <rect x="470" y="270" width="175" height="75" rx="6" fill="#22c55e" opacity="0.7"/>
+  <text x="557" y="292" text-anchor="middle" fill="white" font-family="monospace" font-size="11" font-weight="bold">kubelet</text>
+  <text x="557" y="310" text-anchor="middle" fill="white" font-family="sans-serif" font-size="10">kube-proxy</text>
+  <rect x="495" y="318" width="125" height="20" rx="4" fill="white" opacity="0.8"/>
+  <text x="557" y="333" text-anchor="middle" fill="#16a34a" font-family="sans-serif" font-size="9">Pod &amp;nbsp; Pod &amp;nbsp; Pod</text>
+
+  <defs>
+    <marker id="ka2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,1 L9,5 L0,9" fill="#64748b"/>
+    </marker>
+  </defs>
+</svg>
