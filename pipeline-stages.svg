@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 240">
+  <rect width="700" height="240" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="350" y="26" text-anchor="middle" fill="#334155" font-family="sans-serif" font-size="14" font-weight="bold">Pipeline 流水线</text>
+
+  <defs>
+    <marker id="pi" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M0,1 L9,5 L0,9" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <!-- Lint -->
+  <rect x="15" y="55" width="80" height="36" rx="6" fill="#a78bfa"/>
+  <text x="55" y="78" text-anchor="middle" fill="white" font-family="monospace" font-size="12" font-weight="bold">Lint</text>
+  <text x="55" y="106" text-anchor="middle" fill="#64748b" font-family="sans-serif" font-size="9">~1 min</text>
+  <line x1="95" y1="73" x2="125" y2="73" stroke="#64748b" stroke-width="1.2" marker-end="url(#pi)"/>
+
+  <!-- Build -->
+  <rect x="130" y="55" width="80" height="36" rx="6" fill="#3b82f6"/>
+  <text x="170" y="78" text-anchor="middle" fill="white" font-family="monospace" font-size="12" font-weight="bold">Build</text>
+  <text x="170" y="106" text-anchor="middle" fill="#64748b" font-family="sans-serif" font-size="9">~5 min</text>
+  <line x1="210" y1="73" x2="240" y2="73" stroke="#64748b" stroke-width="1.2" marker-end="url(#pi)"/>
+
+  <!-- Test (parallel block) -->
+  <rect x="255" y="40" width="195" height="66" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1" stroke-dasharray="5,3"/>
+  <text x="352" y="55" text-anchor="middle" fill="#16a34a" font-family="sans-serif" font-size="9" font-weight="bold">并行执行</text>
+
+  <rect x="265" y="58" width="55" height="32" rx="5" fill="#22c55e" opacity="0.8"/>
+  <text x="292" y="79" text-anchor="middle" fill="white" font-family="monospace" font-size="10">Unit</text>
+
+  <rect x="328" y="58" width="60" height="32" rx="5" fill="#22c55e" opacity="0.8"/>
+  <text x="358" y="79" text-anchor="middle" fill="white" font-family="monospace" font-size="10">Integr.</text>
+
+  <rect x="396" y="58" width="48" height="32" rx="5" fill="#22c55e" opacity="0.8"/>
+  <text x="420" y="79" text-anchor="middle" fill="white" font-family="monospace" font-size="10">E2E</text>
+
+  <line x1="450" y1="73" x2="480" y2="73" stroke="#64748b" stroke-width="1.2" marker-end="url(#pi)"/>
+
+  <!-- Scan -->
+  <rect x="485" y="55" width="80" height="36" rx="6" fill="#f59e0b"/>
+  <text x="525" y="78" text-anchor="middle" fill="white" font-family="monospace" font-size="12" font-weight="bold">Scan</text>
+  <text x="525" y="106" text-anchor="middle" fill="#64748b" font-family="sans-serif" font-size="9">~3 min</text>
+  <line x1="565" y1="73" x2="595" y2="73" stroke="#64748b" stroke-width="1.2" marker-end="url(#pi)"/>
+
+  <!-- Deploy -->
+  <rect x="600" y="55" width="85" height="36" rx="6" fill="#ef4444"/>
+  <text x="642" y="78" text-anchor="middle" fill="white" font-family="monospace" font-size="12" font-weight="bold">Deploy</text>
+  <text x="642" y="106" text-anchor="middle" fill="#64748b" font-family="sans-serif" font-size="9">~5 min</text>
+
+  <!-- Principles -->
+  <text x="20" y="145" fill="#1e40af" font-family="sans-serif" font-size="11" font-weight="bold">设计原则：</text>
+
+  <rect x="20" y="155" width="195" height="30" rx="5" fill="#eff6ff"/>
+  <text x="117" y="175" text-anchor="middle" fill="#1e40af" font-family="sans-serif" font-size="10">⚡ 快速失败：Lint→Build→Test→Scan</text>
+
+  <rect x="225" y="155" width="195" height="30" rx="5" fill="#f0fdf4"/>
+  <text x="322" y="175" text-anchor="middle" fill="#16a34a" font-family="sans-serif" font-size="10">∥ 并行：同 Stage 独立任务并发</text>
+
+  <rect x="430" y="155" width="255" height="30" rx="5" fill="#fef2f2"/>
+  <text x="557" y="175" text-anchor="middle" fill="#dc2626" font-family="sans-serif" font-size="10">📦 制品一次构建，环境间不重建</text>
+
+  <!-- Pipeline as Code -->
+  <text x="350" y="210" text-anchor="middle" fill="#64748b" font-family="sans-serif" font-size="10">Pipeline as Code：Jenkinsfile / .gitlab-ci.yml 纳入 Git 版本控制</text>
+</svg>
