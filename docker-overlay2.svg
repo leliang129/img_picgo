@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 240">
+  <rect width="620" height="240" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="310" y="28" text-anchor="middle" fill="#334155" font-family="sans-serif" font-size="15" font-weight="bold">Overlay2 联合文件系统</text>
+
+  <!-- Container Dir -->
+  <rect x="40" y="110" width="540" height="55" rx="6" fill="#fbbf24" opacity="0.8" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="310" y="130" text-anchor="middle" fill="#92400e" font-family="monospace" font-size="12">UpperDir（读写层）</text>
+  <text x="310" y="150" text-anchor="middle" fill="#92400e" font-family="sans-serif" font-size="10">容器所有修改写在这里</text>
+
+  <!-- Merged -->
+  <rect x="40" y="180" width="540" height="40" rx="6" fill="#22c55e" opacity="0.7"/>
+  <text x="310" y="205" text-anchor="middle" fill="white" font-family="monospace" font-size="12" font-weight="bold">Merged（统一视图）— 容器内看到的完整文件系统</text>
+
+  <!-- Lower -->
+  <rect x="40" y="55" width="540" height="50" rx="6" fill="#bfdbfe"/>
+  <text x="310" y="75" text-anchor="middle" fill="#1e40af" font-family="monospace" font-size="12">LowerDir（只读层 1 + 层 2 + ... + 层 N）</text>
+  <text x="310" y="93" text-anchor="middle" fill="#1e40af" font-family="sans-serif" font-size="10">镜像层层堆叠</text>
+
+  <!-- CoW note -->
+  <text x="310" y="228" text-anchor="middle" fill="#64748b" font-family="sans-serif" font-size="10">写时复制（Copy-on-Write）：修改下层文件时,先复制到上层再修改,不影响原始镜像层</text>
+</svg>
