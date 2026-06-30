@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 280">
+  <rect width="650" height="280" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="325" y="28" text-anchor="middle" fill="#334155" font-family="sans-serif" font-size="15" font-weight="bold">LVM 逻辑卷管理架构</text>
+
+  <!-- PV layer -->
+  <text x="50" y="70" fill="#64748b" font-family="monospace" font-size="11">PV（物理卷）</text>
+  <rect x="50" y="80" width="180" height="45" rx="6" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="140" y="100" text-anchor="middle" fill="#475569" font-family="monospace" font-size="12">/dev/sdb</text>
+  <text x="140" y="116" text-anchor="middle" fill="#64748b" font-family="sans-serif" font-size="10">pvcreate</text>
+
+  <rect x="260" y="80" width="180" height="45" rx="6" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="350" y="100" text-anchor="middle" fill="#475569" font-family="monospace" font-size="12">/dev/sdc</text>
+  <text x="350" y="116" text-anchor="middle" fill="#64748b" font-family="sans-serif" font-size="10">pvcreate</text>
+
+  <!-- VG layer -->
+  <text x="50" y="155" fill="#64748b" font-family="monospace" font-size="11">VG（卷组）</text>
+  <rect x="50" y="163" width="550" height="40" rx="6" fill="#3b82f6" opacity="0.7"/>
+  <text x="325" y="189" text-anchor="middle" fill="white" font-family="monospace" font-size="12" font-weight="bold">vg_data（vgcreate）</text>
+
+  <!-- LV layer -->
+  <text x="50" y="232" fill="#64748b" font-family="monospace" font-size="11">LV（逻辑卷）</text>
+  <rect x="50" y="240" width="260" height="35" rx="6" fill="#22c55e" opacity="0.7"/>
+  <text x="180" y="263" text-anchor="middle" fill="white" font-family="monospace" font-size="12">/dev/vg_data/lv_data → /data</text>
+
+  <rect x="340" y="240" width="260" height="35" rx="6" fill="#22c55e" opacity="0.7"/>
+  <text x="470" y="263" text-anchor="middle" fill="white" font-family="monospace" font-size="12">/dev/vg_data/lv_logs → /logs</text>
+
+  <!-- arrows -->
+  <line x1="140" y1="125" x2="140" y2="163" stroke="#64748b" stroke-width="1" marker-end="url(#pa2)"/>
+  <line x1="350" y1="125" x2="350" y2="163" stroke="#64748b" stroke-width="1" marker-end="url(#pa2)"/>
+  <line x1="180" y1="203" x2="180" y2="240" stroke="#64748b" stroke-width="1" marker-end="url(#pa2)"/>
+  <line x1="470" y1="203" x2="470" y2="240" stroke="#64748b" stroke-width="1" marker-end="url(#pa2)"/>
+
+  <defs>
+    <marker id="pa2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,1 L9,5 L0,9" fill="#64748b"/>
+    </marker>
+  </defs>
+</svg>
