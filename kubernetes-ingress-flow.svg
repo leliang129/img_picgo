@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">Kubernetes Ingress 入口流量链路</title>
+  <desc id="desc">客户端请求通过负载均衡、Ingress Controller、Ingress 规则、Service、EndpointSlice 到达 Pod。</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 10 5 0 10z" fill="#475569"/></marker><style>.bg{fill:#f8fafc}.b{fill:#fff;stroke:#94a3b8;stroke-width:1.5}.blue{fill:#dbeafe;stroke:#60a5fa}.green{fill:#dcfce7;stroke:#4ade80}.amber{fill:#fef3c7;stroke:#fbbf24}.t{font-family:Arial,Helvetica,sans-serif;fill:#0f172a}.h{font-size:28px;font-weight:700}.l{font-size:17px;font-weight:700}.s{font-size:14px}.xs{font-size:12px;fill:#475569}.a{stroke:#475569;stroke-width:2;fill:none;marker-end:url(#arrow)}</style></defs>
+  <rect class="bg" width="1200" height="620"/>
+  <text class="t h" x="48" y="56">Ingress 入口流量链路</text>
+  <text class="t s" x="48" y="84">Ingress 描述七层路由规则，Ingress Controller 负责实际转发流量。</text>
+  <rect class="amber b" x="70" y="230" width="140" height="76" rx="10"/><text class="t l" x="110" y="262">Client</text><text class="t xs" x="102" y="284">HTTP / HTTPS</text>
+  <rect class="blue b" x="270" y="230" width="170" height="76" rx="10"/><text class="t l" x="302" y="262">Load Balancer</text><text class="t xs" x="322" y="284">公网或内网入口</text>
+  <rect class="blue b" x="510" y="210" width="190" height="116" rx="10"/><text class="t l" x="548" y="250">Ingress Controller</text><text class="t xs" x="558" y="276">NGINX / Traefik</text><text class="t xs" x="560" y="296">监听 Ingress 规则</text>
+  <rect class="amber b" x="770" y="140" width="160" height="68" rx="10"/><text class="t l" x="812" y="180">Ingress</text>
+  <rect class="green b" x="770" y="260" width="160" height="68" rx="10"/><text class="t l" x="814" y="300">Service</text>
+  <rect class="green b" x="980" y="260" width="160" height="68" rx="10"/><text class="t l" x="1016" y="300">EndpointSlice</text>
+  <rect class="green b" x="980" y="390" width="160" height="68" rx="10"/><text class="t l" x="1044" y="430">Pod</text>
+  <path class="a" d="M210 268h60"/><path class="a" d="M440 268h70"/><path class="a" d="M700 250c45-60 50-70 70-76"/><path class="a" d="M700 284h70"/><path class="a" d="M930 294h50"/><path class="a" d="M1060 328v62"/>
+</svg>
