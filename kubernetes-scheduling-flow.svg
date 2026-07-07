@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">Kubernetes scheduling flow</title>
+  <desc id="desc">The Kubernetes scheduling flow from Pending Pod to filter, score, bind, kubelet pull image, and run containers, including scheduling constraints such as nodeSelector, affinity, taints, resources, and topology spread.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .box { fill: #ffffff; stroke: #94a3b8; stroke-width: 1.5; }
+      .blue { fill: #dbeafe; stroke: #60a5fa; stroke-width: 1.5; }
+      .green { fill: #dcfce7; stroke: #4ade80; stroke-width: 1.5; }
+      .amber { fill: #fef3c7; stroke: #fbbf24; stroke-width: 1.5; }
+      .red { fill: #fee2e2; stroke: #f87171; stroke-width: 1.5; }
+      .text { font-family: Arial, Helvetica, sans-serif; fill: #0f172a; }
+      .title { font-size: 26px; font-weight: 700; }
+      .label { font-size: 17px; font-weight: 700; }
+      .small { font-size: 14px; }
+      .tiny { font-size: 12px; fill: #475569; }
+      .arrow { stroke: #475569; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+      .dash { stroke-dasharray: 7 6; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569" />
+    </marker>
+  </defs>
+  <rect class="bg" width="1200" height="620" />
+  <text class="text title" x="48" y="54">Pod 调度流程</text>
+  <text class="text small" x="48" y="82">Scheduler 先过滤不可用节点，再给候选节点打分，最后绑定 Pod 到目标节点。</text>
+
+  <rect class="blue" x="60" y="170" width="170" height="84" rx="8" />
+  <text class="text label" x="103" y="204">Pending Pod</text>
+  <text class="text tiny" x="93" y="226">未绑定 nodeName</text>
+
+  <rect class="amber" x="310" y="132" width="210" height="160" rx="8" />
+  <text class="text label" x="380" y="166">Filter</text>
+  <text class="text tiny" x="348" y="194">资源 requests</text>
+  <text class="text tiny" x="348" y="218">nodeSelector / affinity</text>
+  <text class="text tiny" x="348" y="242">taints / tolerations</text>
+  <text class="text tiny" x="348" y="266">端口 / PV / 拓扑限制</text>
+
+  <rect class="amber" x="600" y="132" width="210" height="160" rx="8" />
+  <text class="text label" x="675" y="166">Score</text>
+  <text class="text tiny" x="640" y="194">资源利用率</text>
+  <text class="text tiny" x="640" y="218">亲和性偏好</text>
+  <text class="text tiny" x="640" y="242">拓扑分布</text>
+  <text class="text tiny" x="640" y="266">插件评分权重</text>
+
+  <rect class="green" x="890" y="170" width="170" height="84" rx="8" />
+  <text class="text label" x="940" y="204">Bind</text>
+  <text class="text tiny" x="918" y="226">写入 spec.nodeName</text>
+
+  <rect class="green" x="890" y="354" width="170" height="84" rx="8" />
+  <text class="text label" x="937" y="388">kubelet</text>
+  <text class="text tiny" x="920" y="410">拉镜像并启动容器</text>
+
+  <rect class="red" x="310" y="390" width="500" height="84" rx="8" />
+  <text class="text label" x="430" y="424">Unschedulable</text>
+  <text class="text tiny" x="384" y="448">没有节点满足过滤条件时，Pod 保持 Pending，并在 Events 中记录原因</text>
+
+  <path class="arrow" d="M 230 212 L 310 212" />
+  <path class="arrow" d="M 520 212 L 600 212" />
+  <path class="arrow" d="M 810 212 L 890 212" />
+  <path class="arrow" d="M 975 254 L 975 354" />
+  <path class="arrow dash" d="M 415 292 L 415 390" />
+  <path class="arrow dash" d="M 705 292 L 705 390" />
+
+  <text class="text tiny" x="250" y="194">调度队列</text>
+  <text class="text tiny" x="540" y="194">候选节点</text>
+  <text class="text tiny" x="832" y="194">最佳节点</text>
+</svg>
