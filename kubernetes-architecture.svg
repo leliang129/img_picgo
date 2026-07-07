@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Kubernetes cluster architecture</title>
+  <desc id="desc">A Kubernetes cluster with users and CI systems connecting to the API server, control plane components, etcd, worker nodes, kubelet, container runtime, kube-proxy, CNI, and application pods.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .panel { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2; }
+      .panel-blue { fill: #eff6ff; stroke: #93c5fd; stroke-width: 2; }
+      .panel-green { fill: #ecfdf5; stroke: #86efac; stroke-width: 2; }
+      .panel-amber { fill: #fffbeb; stroke: #fcd34d; stroke-width: 2; }
+      .box { fill: #ffffff; stroke: #94a3b8; stroke-width: 1.5; }
+      .box-blue { fill: #dbeafe; stroke: #60a5fa; stroke-width: 1.5; }
+      .box-green { fill: #dcfce7; stroke: #4ade80; stroke-width: 1.5; }
+      .box-amber { fill: #fef3c7; stroke: #fbbf24; stroke-width: 1.5; }
+      .text { font-family: Arial, Helvetica, sans-serif; fill: #0f172a; }
+      .title { font-size: 26px; font-weight: 700; }
+      .label { font-size: 17px; font-weight: 700; }
+      .small { font-size: 14px; }
+      .tiny { font-size: 12px; fill: #475569; }
+      .arrow { stroke: #475569; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+      .dash { stroke-dasharray: 7 6; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569" />
+    </marker>
+  </defs>
+  <rect class="bg" width="1200" height="720" rx="0" />
+  <text class="text title" x="48" y="54">Kubernetes 集群架构</text>
+  <text class="text small" x="48" y="82">API Server 是统一入口；控制面负责期望状态，节点组件负责运行 Pod。</text>
+
+  <rect class="panel-amber" x="48" y="122" width="250" height="170" rx="8" />
+  <text class="text label" x="72" y="156">访问入口</text>
+  <rect class="box-amber" x="72" y="180" width="200" height="38" rx="6" />
+  <text class="text small" x="124" y="204">kubectl / 用户</text>
+  <rect class="box-amber" x="72" y="234" width="200" height="38" rx="6" />
+  <text class="text small" x="113" y="258">CI/CD / GitOps</text>
+
+  <rect class="panel-blue" x="360" y="110" width="390" height="420" rx="8" />
+  <text class="text label" x="386" y="146">控制平面</text>
+  <rect class="box-blue" x="386" y="176" width="150" height="58" rx="6" />
+  <text class="text small" x="421" y="201">API Server</text>
+  <text class="text tiny" x="413" y="219">统一 API 入口</text>
+  <rect class="box-blue" x="574" y="176" width="150" height="58" rx="6" />
+  <text class="text small" x="603" y="201">Controller</text>
+  <text class="text tiny" x="608" y="219">状态协调</text>
+  <rect class="box-blue" x="386" y="268" width="150" height="58" rx="6" />
+  <text class="text small" x="426" y="293">Scheduler</text>
+  <text class="text tiny" x="413" y="311">选择运行节点</text>
+  <rect class="box-blue" x="574" y="268" width="150" height="58" rx="6" />
+  <text class="text small" x="617" y="293">etcd</text>
+  <text class="text tiny" x="598" y="311">集群状态存储</text>
+  <rect class="box" x="436" y="376" width="238" height="92" rx="6" />
+  <text class="text small" x="487" y="408">声明式期望状态</text>
+  <text class="text tiny" x="473" y="432">Deployment / Service / RBAC</text>
+  <text class="text tiny" x="498" y="452">ConfigMap / Secret</text>
+
+  <rect class="panel-green" x="820" y="110" width="330" height="240" rx="8" />
+  <text class="text label" x="846" y="146">Worker Node A</text>
+  <rect class="box-green" x="846" y="176" width="125" height="46" rx="6" />
+  <text class="text small" x="885" y="204">kubelet</text>
+  <rect class="box-green" x="999" y="176" width="125" height="46" rx="6" />
+  <text class="text small" x="1017" y="204">containerd</text>
+  <rect class="box-green" x="846" y="246" width="125" height="46" rx="6" />
+  <text class="text small" x="878" y="274">kube-proxy</text>
+  <rect class="box-green" x="999" y="246" width="125" height="46" rx="6" />
+  <text class="text small" x="1044" y="274">CNI</text>
+  <rect class="box" x="893" y="314" width="184" height="36" rx="6" />
+  <text class="text small" x="924" y="337">Application Pods</text>
+
+  <rect class="panel-green" x="820" y="410" width="330" height="210" rx="8" />
+  <text class="text label" x="846" y="446">Worker Node B</text>
+  <rect class="box-green" x="846" y="476" width="125" height="42" rx="6" />
+  <text class="text small" x="885" y="502">kubelet</text>
+  <rect class="box-green" x="999" y="476" width="125" height="42" rx="6" />
+  <text class="text small" x="1017" y="502">containerd</text>
+  <rect class="box" x="893" y="548" width="184" height="36" rx="6" />
+  <text class="text small" x="924" y="571">Application Pods</text>
+
+  <path class="arrow" d="M 298 198 L 386 198" />
+  <path class="arrow" d="M 298 254 L 386 206" />
+  <path class="arrow" d="M 536 205 L 574 205" />
+  <path class="arrow" d="M 536 222 L 574 278" />
+  <path class="arrow" d="M 536 292 L 574 222" />
+  <path class="arrow" d="M 724 296 L 820 238" />
+  <path class="arrow dash" d="M 536 430 C 650 520 720 524 820 522" />
+  <path class="arrow" d="M 750 205 C 790 205 790 198 820 198" />
+  <path class="arrow" d="M 750 298 C 788 318 790 330 820 330" />
+  <path class="arrow dash" d="M 985 350 L 985 410" />
+</svg>
