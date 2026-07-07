@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">Kubernetes resource governance</title>
+  <desc id="desc">A diagram showing Namespace governance with ResourceQuota, LimitRange, Pod requests and limits, Scheduler decisions, and Node resource capacity.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .panel { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2; }
+      .blue { fill: #dbeafe; stroke: #60a5fa; stroke-width: 1.5; }
+      .green { fill: #dcfce7; stroke: #4ade80; stroke-width: 1.5; }
+      .amber { fill: #fef3c7; stroke: #fbbf24; stroke-width: 1.5; }
+      .purple { fill: #ede9fe; stroke: #a78bfa; stroke-width: 1.5; }
+      .box { fill: #ffffff; stroke: #94a3b8; stroke-width: 1.5; }
+      .text { font-family: Arial, Helvetica, sans-serif; fill: #0f172a; }
+      .title { font-size: 26px; font-weight: 700; }
+      .label { font-size: 17px; font-weight: 700; }
+      .small { font-size: 14px; }
+      .tiny { font-size: 12px; fill: #475569; }
+      .arrow { stroke: #475569; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+      .dash { stroke-dasharray: 7 6; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569" />
+    </marker>
+  </defs>
+  <rect class="bg" width="1200" height="650" />
+  <text class="text title" x="48" y="54">资源治理关系图</text>
+  <text class="text small" x="48" y="82">Namespace 通过 Quota 和 LimitRange 控制总量与默认值，Pod requests 决定调度，limits 决定运行上限。</text>
+
+  <rect class="panel" x="64" y="126" width="330" height="390" rx="8" />
+  <text class="text label" x="92" y="164">Namespace: team-a</text>
+  <rect class="blue" x="92" y="198" width="250" height="72" rx="6" />
+  <text class="text small" x="138" y="228">ResourceQuota</text>
+  <text class="text tiny" x="127" y="248">限制命名空间资源总量</text>
+  <rect class="amber" x="92" y="304" width="250" height="72" rx="6" />
+  <text class="text small" x="149" y="334">LimitRange</text>
+  <text class="text tiny" x="122" y="354">默认 requests / limits</text>
+  <rect class="green" x="92" y="410" width="250" height="72" rx="6" />
+  <text class="text small" x="160" y="440">Pod Spec</text>
+  <text class="text tiny" x="128" y="460">requests.cpu / limits.memory</text>
+
+  <rect class="purple" x="500" y="238" width="210" height="110" rx="8" />
+  <text class="text label" x="554" y="276">Scheduler</text>
+  <text class="text tiny" x="546" y="302">根据 requests 过滤节点</text>
+  <text class="text tiny" x="544" y="322">再按策略打分选择</text>
+
+  <rect class="panel" x="820" y="126" width="310" height="390" rx="8" />
+  <text class="text label" x="850" y="164">Node Capacity</text>
+  <rect class="box" x="854" y="204" width="240" height="58" rx="6" />
+  <text class="text small" x="892" y="238">Allocatable CPU / Memory</text>
+  <rect class="green" x="854" y="302" width="240" height="58" rx="6" />
+  <text class="text small" x="912" y="336">Scheduled Pods</text>
+  <rect class="amber" x="854" y="400" width="240" height="58" rx="6" />
+  <text class="text small" x="901" y="434">Runtime Limits</text>
+
+  <path class="arrow" d="M 342 232 C 420 232 430 268 500 284" />
+  <path class="arrow" d="M 342 340 C 420 340 430 318 500 304" />
+  <path class="arrow" d="M 342 446 C 430 446 438 324 500 314" />
+  <path class="arrow" d="M 710 292 L 820 292" />
+  <path class="arrow" d="M 974 360 L 974 400" />
+  <path class="arrow dash" d="M 974 262 L 974 302" />
+
+  <text class="text tiny" x="438" y="210">准入控制</text>
+  <text class="text tiny" x="737" y="272">绑定节点</text>
+  <text class="text tiny" x="1000" y="384">运行期限制</text>
+</svg>
