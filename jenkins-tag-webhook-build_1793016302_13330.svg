@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="760" viewBox="0 0 1440 760" role="img" aria-labelledby="title desc">
+  <title id="title">GitLab Tag Webhook 触发 Jenkins 镜像构建流程</title>
+  <desc id="desc">开发者创建并推送 Tag，GitLab 通过 Tag push events webhook 触发 Jenkins，随后构建 Agent 拉取对应 Tag、生成镜像标签、构建并检查本地镜像。</desc>
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#0F172A" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#64748B"/>
+    </marker>
+    <style>
+      .font { font-family: Inter, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .mono { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
+      .group-label { font-size: 15px; font-weight: 700; letter-spacing: 1px; }
+      .card-title { font-size: 21px; font-weight: 700; fill: #0F172A; }
+      .card-text { font-size: 15px; fill: #475569; }
+      .code { font-size: 14px; fill: #334155; }
+      .arrow { stroke: #64748B; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect width="1440" height="760" fill="#F8FAFC"/>
+  <g class="font">
+    <text x="56" y="58" font-size="32" font-weight="750" fill="#0F172A">GitLab Tag Webhook → Jenkins 镜像构建</text>
+    <text x="56" y="94" font-size="17" fill="#64748B">从创建并推送 Git Tag 开始，到 Agent 本地镜像构建与检查结束</text>
+    <rect x="1110" y="38" width="274" height="42" rx="21" fill="#FFF1E8" stroke="#FDBA74"/>
+    <circle cx="1136" cy="59" r="6" fill="#FC6D26"/>
+    <text x="1152" y="65" font-size="15" font-weight="650" fill="#9A3412">触发事件：Tag push events</text>
+  </g>
+
+  <rect x="56" y="132" width="1328" height="206" rx="20" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <g class="font">
+    <text x="80" y="168" class="group-label" fill="#C2410C">01 事件触发</text>
+    <text x="1338" y="168" text-anchor="end" font-size="14" fill="#64748B">只订阅公司约定的发布事件，本例选择创建并推送 Tag</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="80" y="194" width="310" height="112" rx="14" fill="#FFFFFF" stroke="#CBD5E1"/>
+    <rect x="80" y="194" width="310" height="5" rx="2.5" fill="#0EA5E9"/>
+    <rect x="460" y="194" width="360" height="112" rx="14" fill="#FFFFFF" stroke="#FED7AA"/>
+    <rect x="460" y="194" width="360" height="5" rx="2.5" fill="#FC6D26"/>
+    <rect x="900" y="194" width="440" height="112" rx="14" fill="#FFFFFF" stroke="#BFDBFE"/>
+    <rect x="900" y="194" width="440" height="5" rx="2.5" fill="#2563EB"/>
+  </g>
+
+  <g class="font">
+    <text x="104" y="228" class="card-title">开发者</text>
+    <text x="104" y="257" class="code mono">git tag v1.0.0</text>
+    <text x="104" y="282" class="code mono">git push origin v1.0.0</text>
+
+    <text x="484" y="228" class="card-title">GitLab</text>
+    <text x="484" y="257" class="card-text">捕获 Tag 创建并发送 Webhook</text>
+    <text x="484" y="283" class="card-text">Tag push events · Secret Token</text>
+
+    <text x="924" y="228" class="card-title">Jenkins Controller</text>
+    <text x="924" y="257" class="card-text">校验 Token，启动对应 Pipeline</text>
+    <text x="924" y="283" class="code mono">gitlabBranch = refs/tags/v1.0.0</text>
+  </g>
+
+  <path d="M402 250 H444" class="arrow"/>
+  <path d="M832 250 H884" class="arrow"/>
+  <path d="M1120 318 V372" class="arrow"/>
+  <g class="font">
+    <rect x="1035" y="337" width="170" height="27" rx="13.5" fill="#F1F5F9"/>
+    <text x="1120" y="356" text-anchor="middle" font-size="13" fill="#475569">调度到 docker Agent</text>
+  </g>
+
+  <rect x="56" y="388" width="1328" height="266" rx="20" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <g class="font">
+    <text x="80" y="424" class="group-label" fill="#1D4ED8">02 构建执行 · Jenkins Agent</text>
+    <text x="1338" y="424" text-anchor="end" font-size="14" fill="#64748B">Checkout 的是本次 webhook 对应的 Tag，不默认拉 main</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="80" y="452" width="280" height="132" rx="14" fill="#FFFFFF" stroke="#CBD5E1"/>
+    <rect x="80" y="452" width="280" height="5" rx="2.5" fill="#64748B"/>
+    <rect x="400" y="452" width="280" height="132" rx="14" fill="#FFFFFF" stroke="#C4B5FD"/>
+    <rect x="400" y="452" width="280" height="5" rx="2.5" fill="#8B5CF6"/>
+    <rect x="720" y="452" width="280" height="132" rx="14" fill="#FFFFFF" stroke="#7DD3FC"/>
+    <rect x="720" y="452" width="280" height="5" rx="2.5" fill="#0EA5E9"/>
+    <rect x="1040" y="452" width="300" height="132" rx="14" fill="#FFFFFF" stroke="#86EFAC"/>
+    <rect x="1040" y="452" width="300" height="5" rx="2.5" fill="#22C55E"/>
+  </g>
+
+  <g class="font">
+    <text x="104" y="487" class="card-title">Checkout</text>
+    <text x="104" y="518" class="code mono">refs/tags/v1.0.0</text>
+    <text x="104" y="545" class="card-text">拉取并确认 Tag 对应 commit</text>
+
+    <text x="424" y="487" class="card-title">Prepare</text>
+    <text x="424" y="518" class="code mono">IMAGE_TAG = v1.0.0</text>
+    <text x="424" y="545" class="card-text">检查 Dockerfile 与 Docker</text>
+
+    <text x="744" y="487" class="card-title">Build Image</text>
+    <text x="744" y="518" class="code mono">docker build</text>
+    <text x="744" y="545" class="code mono">order-api:v1.0.0</text>
+
+    <text x="1064" y="487" class="card-title">Verify Image</text>
+    <text x="1064" y="518" class="code mono">docker image inspect</text>
+    <text x="1064" y="545" class="card-text">镜像已生成 · 不推送 · 不部署</text>
+  </g>
+
+  <path d="M372 518 H384" class="arrow"/>
+  <path d="M692 518 H704" class="arrow"/>
+  <path d="M1012 518 H1024" class="arrow"/>
+
+  <g class="font">
+    <rect x="80" y="602" width="1260" height="32" rx="8" fill="#ECFDF5"/>
+    <text x="710" y="624" text-anchor="middle" font-size="14" font-weight="600" fill="#166534">终点：Agent 本地镜像 order-api:v1.0.0，可通过 Git Tag 和 commit 追溯</text>
+
+    <circle cx="68" cy="700" r="5" fill="#FC6D26"/>
+    <text x="84" y="706" font-size="15" fill="#475569">事件选择需结合公司发布流程：普通 branch push、Merge Request 是否触发由团队约定；本例只响应 Tag push。</text>
+  </g>
+</svg>
