@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="800" viewBox="0 0 1600 800">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0d203a" flood-opacity="0.10"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#047eb8"/>
+    </marker>
+    <marker id="arrowGray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- 标题 -->
+  <text x="800" y="52" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="26" font-weight="600" fill="#0d203a">Alertmanager × Dify 告警 AI 分析架构</text>
+  <text x="800" y="84" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" fill="#55657a">Webhook 触发节点异步接收 · MCP 取证 · LLM 分析 · 原通知链路旁路不受影响</text>
+
+  <!-- 主链路：Prometheus -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="180" width="190" height="116" rx="12" fill="#ffffff" stroke="#12affa" stroke-width="1.5"/>
+  </g>
+  <rect x="40" y="180" width="6" height="116" rx="3" fill="#e6522c"/>
+  <text x="135" y="228" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="18" font-weight="600" fill="#0d203a">Prometheus</text>
+  <text x="135" y="256" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#55657a">告警规则评估</text>
+
+  <!-- 主链路：Alertmanager -->
+  <g filter="url(#shadow)">
+    <rect x="300" y="180" width="210" height="116" rx="12" fill="#ffffff" stroke="#12affa" stroke-width="1.5"/>
+  </g>
+  <rect x="300" y="180" width="6" height="116" rx="3" fill="#e6522c"/>
+  <text x="405" y="224" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="18" font-weight="600" fill="#0d203a">Alertmanager</text>
+  <text x="405" y="250" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#55657a">分组 / 抑制 / 静默照旧</text>
+  <text x="405" y="272" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#047eb8">新增 receiver：dify-ai</text>
+
+  <!-- 主链路：Webhook 触发节点 -->
+  <g filter="url(#shadow)">
+    <rect x="580" y="180" width="240" height="116" rx="12" fill="#ffffff" stroke="#12affa" stroke-width="2"/>
+  </g>
+  <rect x="580" y="180" width="6" height="116" rx="3" fill="#12affa"/>
+  <text x="700" y="218" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="18" font-weight="600" fill="#0d203a">Dify Webhook 触发</text>
+  <text x="700" y="246" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#55657a">异步模式 · 立即返回 200</text>
+  <text x="700" y="270" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#047eb8">{"accepted":true}</text>
+
+  <!-- 工作流容器 -->
+  <g filter="url(#shadow)">
+    <rect x="880" y="120" width="520" height="236" rx="14" fill="#f4fafe" stroke="#12affa" stroke-width="2"/>
+  </g>
+  <text x="1140" y="156" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="18" font-weight="600" fill="#0d203a">Dify 工作流</text>
+
+  <!-- 工作流内部五个节点：解析 900 / 分流 999 / 取证 1098 / 分析 1197 / 通知 1296，各宽 84 -->
+  <g font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif">
+    <rect x="900" y="196" width="84" height="76" rx="10" fill="#ffffff" stroke="#7ccdfb" stroke-width="1.5"/>
+    <text x="942" y="228" text-anchor="middle" font-size="14" font-weight="600" fill="#0d203a">解析</text>
+    <text x="942" y="250" text-anchor="middle" font-size="11" fill="#55657a">Code 节点</text>
+
+    <rect x="999" y="196" width="84" height="76" rx="10" fill="#ffffff" stroke="#7ccdfb" stroke-width="1.5"/>
+    <text x="1041" y="228" text-anchor="middle" font-size="14" font-weight="600" fill="#0d203a">分流</text>
+    <text x="1041" y="250" text-anchor="middle" font-size="11" fill="#55657a">IF/ELSE</text>
+
+    <rect x="1098" y="196" width="84" height="76" rx="10" fill="#ffffff" stroke="#12affa" stroke-width="2"/>
+    <text x="1140" y="228" text-anchor="middle" font-size="14" font-weight="600" fill="#0d203a">取证</text>
+    <text x="1140" y="250" text-anchor="middle" font-size="11" fill="#55657a">MCP 工具</text>
+
+    <rect x="1197" y="196" width="84" height="76" rx="10" fill="#ffffff" stroke="#7ccdfb" stroke-width="1.5"/>
+    <text x="1239" y="228" text-anchor="middle" font-size="14" font-weight="600" fill="#0d203a">分析</text>
+    <text x="1239" y="250" text-anchor="middle" font-size="11" fill="#55657a">LLM</text>
+
+    <rect x="1296" y="196" width="84" height="76" rx="10" fill="#ffffff" stroke="#7ccdfb" stroke-width="1.5"/>
+    <text x="1338" y="228" text-anchor="middle" font-size="14" font-weight="600" fill="#0d203a">通知</text>
+    <text x="1338" y="250" text-anchor="middle" font-size="11" fill="#55657a">渲染+截断</text>
+  </g>
+
+  <!-- 节点间小箭头 -->
+  <g stroke="#047eb8" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <line x1="984" y1="234" x2="995" y2="234"/>
+    <line x1="1083" y1="234" x2="1094" y2="234"/>
+    <line x1="1182" y1="234" x2="1193" y2="234"/>
+    <line x1="1281" y1="234" x2="1292" y2="234"/>
+  </g>
+
+  <!-- 主链路：通知群 -->
+  <g filter="url(#shadow)">
+    <rect x="1470" y="180" width="110" height="116" rx="12" fill="#ffffff" stroke="#12affa" stroke-width="1.5"/>
+  </g>
+  <rect x="1470" y="180" width="6" height="116" rx="3" fill="#07c160"/>
+  <text x="1525" y="222" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="17" font-weight="600" fill="#0d203a">通知群</text>
+  <text x="1525" y="248" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#55657a">飞书 / 企微 / 钉钉</text>
+  <text x="1525" y="270" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#047eb8">≤ 20 KB</text>
+
+  <!-- 主链路箭头 -->
+  <g stroke="#047eb8" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <line x1="230" y1="238" x2="296" y2="238"/>
+    <line x1="510" y1="238" x2="576" y2="238"/>
+    <line x1="820" y1="238" x2="876" y2="238"/>
+    <line x1="1400" y1="238" x2="1466" y2="238"/>
+  </g>
+  <g font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#047eb8">
+    <text x="263" y="226" text-anchor="middle">告警触发</text>
+    <text x="545" y="168" text-anchor="middle">webhook POST · 原始 JSON</text>
+    <text x="848" y="168" text-anchor="middle">_webhook_raw.body</text>
+    <text x="1433" y="226" text-anchor="middle">分析报告</text>
+  </g>
+
+  <!-- 旁路：原有通知链路 -->
+  <g filter="url(#shadow)">
+    <rect x="300" y="450" width="210" height="104" rx="12" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="6 4"/>
+  </g>
+  <rect x="300" y="450" width="6" height="104" rx="3" fill="#94a3b8"/>
+  <text x="405" y="492" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="16" font-weight="600" fill="#0d203a">原有通知 receiver</text>
+  <text x="405" y="518" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#55657a">邮件 / IM · continue: true</text>
+  <text x="405" y="538" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#55657a">旁路不受影响</text>
+  <line x1="405" y1="296" x2="405" y2="444" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrowGray)"/>
+  <text x="417" y="378" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#64748b">旁路通知（不变）</text>
+
+  <!-- MCP 取证工具组 -->
+  <g filter="url(#shadow)">
+    <rect x="830" y="440" width="570" height="130" rx="14" fill="#f7fbff" stroke="#94d4fd" stroke-width="1.5"/>
+  </g>
+  <text x="1115" y="470" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="600" fill="#0d203a">取证工具（MCP，只读）</text>
+  <g font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif">
+    <rect x="850" y="488" width="170" height="58" rx="10" fill="#ffffff" stroke="#7ccdfb" stroke-width="1.5"/>
+    <text x="935" y="514" text-anchor="middle" font-size="14" font-weight="600" fill="#0d203a">Prometheus MCP</text>
+    <text x="935" y="534" text-anchor="middle" font-size="11" fill="#55657a">指标曲线 · 按告警时间窗</text>
+
+    <rect x="1036" y="488" width="170" height="58" rx="10" fill="#ffffff" stroke="#7ccdfb" stroke-width="1.5"/>
+    <text x="1121" y="514" text-anchor="middle" font-size="14" font-weight="600" fill="#0d203a">Kubernetes MCP</text>
+    <text x="1121" y="534" text-anchor="middle" font-size="11" fill="#55657a">Pod 状态 · Warning 事件</text>
+
+    <rect x="1222" y="488" width="170" height="58" rx="10" fill="#ffffff" stroke="#7ccdfb" stroke-width="1.5"/>
+    <text x="1307" y="514" text-anchor="middle" font-size="14" font-weight="600" fill="#0d203a">VictoriaLogs MCP</text>
+    <text x="1307" y="534" text-anchor="middle" font-size="11" fill="#55657a">同窗口 ERROR 日志</text>
+  </g>
+  <line x1="1140" y1="272" x2="1140" y2="434" stroke="#12affa" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="1152" y="330" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#047eb8">查指标 / 事件 / 日志</text>
+  <text x="1152" y="350" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#047eb8">参数按告警 labels 取值</text>
+
+  <!-- 底部护栏注释条 -->
+  <rect x="40" y="640" width="1540" height="80" rx="12" fill="#f8fafc" stroke="#e2e8f0"/>
+  <g font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#55657a">
+    <text x="80" y="690" font-weight="600" fill="#0d203a" font-size="15">关键护栏</text>
+    <text x="240" y="690">触发节点不去重：靠分组与 repeat_interval 控制频率</text>
+    <text x="750" y="690">MCP 只读、不做自动处置，结论必须带证据来源</text>
+    <text x="1230" y="690">异步 ACK 下工作流失败在 Dify 侧监控</text>
+  </g>
+</svg>
