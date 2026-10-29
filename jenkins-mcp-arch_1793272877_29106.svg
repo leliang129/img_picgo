@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="600" viewBox="0 0 1440 600">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0d203a" flood-opacity="0.10"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#047eb8"/>
+    </marker>
+  </defs>
+
+  <text x="720" y="52" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="26" font-weight="600" fill="#0d203a">Dify Agent 通过 Jenkins MCP 驱动 CI/CD</text>
+  <text x="720" y="82" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" fill="#55657a">自然语言 → MCP 工具调用 → Jenkins API → 构建并发布到目标机</text>
+
+  <!-- 用户 -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="180" width="150" height="100" rx="12" fill="#ffffff" stroke="#12affa" stroke-width="1.5"/>
+  </g>
+  <rect x="40" y="180" width="6" height="100" rx="3" fill="#12affa"/>
+  <text x="115" y="224" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="17" font-weight="600" fill="#0d203a">用户</text>
+  <text x="115" y="250" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#55657a">自然语言指令</text>
+
+  <!-- Dify Agent -->
+  <g filter="url(#shadow)">
+    <rect x="260" y="180" width="200" height="100" rx="12" fill="#ffffff" stroke="#12affa" stroke-width="2"/>
+  </g>
+  <rect x="260" y="180" width="6" height="100" rx="3" fill="#12affa"/>
+  <text x="360" y="218" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="17" font-weight="600" fill="#0d203a">Dify Agent</text>
+  <text x="360" y="244" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#55657a">意图识别 → 工具调用</text>
+  <text x="360" y="264" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#047eb8">不得编造返回数据</text>
+
+  <!-- mcp-jenkins 容器 -->
+  <g filter="url(#shadow)">
+    <rect x="530" y="180" width="230" height="100" rx="12" fill="#ffffff" stroke="#12affa" stroke-width="2"/>
+  </g>
+  <rect x="530" y="180" width="6" height="100" rx="3" fill="#12affa"/>
+  <text x="645" y="214" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="17" font-weight="600" fill="#0d203a">mcp-jenkins 容器</text>
+  <text x="645" y="240" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#55657a">--transport sse · :9887</text>
+  <text x="645" y="262" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#047eb8">与 Jenkins 同机部署</text>
+
+  <!-- Jenkins -->
+  <g filter="url(#shadow)">
+    <rect x="830" y="170" width="220" height="120" rx="12" fill="#ffffff" stroke="#e6522c" stroke-width="1.5"/>
+  </g>
+  <rect x="830" y="170" width="6" height="120" rx="3" fill="#e6522c"/>
+  <text x="940" y="210" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="18" font-weight="600" fill="#0d203a">Jenkins</text>
+  <text x="940" y="236" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#55657a">Rocky 9 · :8080</text>
+  <text x="940" y="258" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#55657a">Node.js 构建 · Publish Over SSH</text>
+
+  <!-- 目标机 -->
+  <g filter="url(#shadow)">
+    <rect x="1160" y="180" width="220" height="100" rx="12" fill="#ffffff" stroke="#07c160" stroke-width="1.5"/>
+  </g>
+  <rect x="1160" y="180" width="6" height="100" rx="3" fill="#07c160"/>
+  <text x="1270" y="218" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="17" font-weight="600" fill="#0d203a">目标机 Nginx</text>
+  <text x="1270" y="244" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#55657a">/var/www/dist 静态站点</text>
+
+  <!-- 主链路箭头 -->
+  <g stroke="#047eb8" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <line x1="190" y1="230" x2="256" y2="230"/>
+    <line x1="460" y1="230" x2="526" y2="230"/>
+    <line x1="760" y1="230" x2="826" y2="230"/>
+    <line x1="1050" y1="230" x2="1156" y2="230"/>
+  </g>
+  <g font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#047eb8">
+    <text x="223" y="218" text-anchor="middle">提问</text>
+    <text x="493" y="164" text-anchor="middle">MCP · HTTP/SSE</text>
+    <text x="793" y="164" text-anchor="middle">REST API :8080</text>
+    <text x="1103" y="212" text-anchor="middle">SSH 发布</text>
+  </g>
+
+  <!-- 凭证注释 -->
+  <rect x="460" y="360" width="400" height="72" rx="10" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="480" y="390" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" font-weight="600" fill="#0d203a">Dify 侧请求头携带凭证</text>
+  <text x="480" y="414" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#55657a">x-jenkins-url / username / password（建议 API Token）</text>
+
+  <!-- 安全注释 -->
+  <rect x="900" y="360" width="480" height="72" rx="10" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="920" y="390" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" font-weight="600" fill="#0d203a">安全要点</text>
+  <text x="920" y="414" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#55657a">9887 仅放行 Dify 服务器 IP · 凭证可随时吊销 · 构建权限最小化</text>
+
+  <!-- 工具清单 -->
+  <text x="720" y="500" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#55657a">可用工具：get_all_jobs · search_jobs · build_job · get_build_info · get_build_logs · get_running_builds · get_all_queue_items</text>
+</svg>
