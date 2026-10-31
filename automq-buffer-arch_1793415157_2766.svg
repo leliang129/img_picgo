@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="860" viewBox="0 0 1600 860">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#0d203a" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#047eb8"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/>
+    </marker>
+    <marker id="arrowGray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="860" fill="#ffffff"/>
+
+  <!-- 标题 -->
+  <text x="800" y="58" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="600" fill="#0d203a">日志系统 · AutoMQ 缓冲层架构</text>
+  <text x="800" y="90" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" fill="#55657a">Vector 采集 → AutoMQ 持久化队列 → VictoriaLogs 存储 → Grafana / vmalert 消费展示</text>
+
+  <!-- 分组一：Vector 采集层 -->
+  <rect x="40" y="140" width="400" height="430" rx="16" fill="#f0f8ff" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="8 5"/>
+  <text x="240" y="178" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="18" font-weight="600" fill="#0369a1">Vector 采集层</text>
+
+  <g filter="url(#shadow)">
+    <rect x="80" y="200" width="320" height="120" rx="12" fill="#ffffff" stroke="#38bdf8" stroke-width="1.5"/>
+  </g>
+  <circle cx="122" cy="238" r="18" fill="#12affa"/>
+  <text x="122" y="244" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="16" font-weight="700" fill="#ffffff">V</text>
+  <text x="160" y="232" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="16" font-weight="600" fill="#0d203a">Vector Agent（DaemonSet）</text>
+  <text x="160" y="256" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#55657a">逐节点采集 Pod 容器日志</text>
+  <text x="160" y="276" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#55657a">kubernetes_logs source</text>
+  <text x="160" y="300" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#047eb8">VRL 解析 JSON、提取字段</text>
+
+  <g filter="url(#shadow)">
+    <rect x="80" y="356" width="320" height="88" rx="12" fill="#ffffff" stroke="#38bdf8" stroke-width="1.5"/>
+  </g>
+  <circle cx="122" cy="392" r="18" fill="#7ccdfb"/>
+  <text x="122" y="398" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="700" fill="#ffffff">出</text>
+  <text x="160" y="388" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="600" fill="#0d203a">kafka sink（写出）</text>
+  <text x="160" y="410" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#55657a">按 topic 写入 AutoMQ bootstrap 地址</text>
+  <text x="160" y="430" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#55657a">支持批量、压缩、确认机制</text>
+
+  <text x="80" y="500" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#0369a1">特点：采集端无状态、跟随节点伸缩</text>
+  <text x="80" y="524" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#0369a1">下游抖动时不再独自硬扛缓冲压力</text>
+
+  <!-- 分组二：AutoMQ 缓冲层 -->
+  <rect x="520" y="140" width="460" height="430" rx="16" fill="#f0fdf4" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="8 5"/>
+  <text x="750" y="178" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="18" font-weight="600" fill="#15803d">AutoMQ 缓冲层</text>
+
+  <g filter="url(#shadow)">
+    <rect x="560" y="200" width="380" height="132" rx="12" fill="#ffffff" stroke="#22c55e" stroke-width="1.5"/>
+  </g>
+  <circle cx="604" cy="238" r="18" fill="#16a34a"/>
+  <text x="604" y="244" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="700" fill="#ffffff">MQ</text>
+  <text x="642" y="230" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="16" font-weight="600" fill="#0d203a">AutoMQ Broker 集群</text>
+  <text x="642" y="252" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#55657a">Kafka 协议兼容，Vector 直接对接</text>
+  <text x="642" y="272" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#55657a">无状态 Broker，按需弹性扩缩容</text>
+  <text x="642" y="296" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#15803d">削峰填谷 · 可重放 · 多消费者分发</text>
+  <text x="642" y="318" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#15803d">topic 按业务域划分</text>
+
+  <g filter="url(#shadow)">
+    <rect x="560" y="400" width="380" height="104" rx="12" fill="#ffffff" stroke="#22c55e" stroke-width="1.5"/>
+  </g>
+  <circle cx="604" cy="438" r="18" fill="#0ea5e9"/>
+  <text x="604" y="444" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="700" fill="#ffffff">S3</text>
+  <text x="642" y="432" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="600" fill="#0d203a">S3 / 对象存储</text>
+  <text x="642" y="454" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#55657a">日志数据真正落盘的地方</text>
+  <text x="642" y="474" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#55657a">免本地磁盘均衡与副本迁移</text>
+
+  <line x1="750" y1="332" x2="750" y2="394" stroke="#16a34a" stroke-width="2" marker-end="url(#arrowGreen)"/>
+  <text x="762" y="366" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#15803d">持久化写入</text>
+
+  <!-- 分组三：存储与展示层 -->
+  <rect x="1060" y="140" width="500" height="430" rx="16" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="8 5"/>
+  <text x="1310" y="178" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="18" font-weight="600" fill="#b45309">存储与展示层</text>
+
+  <g filter="url(#shadow)">
+    <rect x="1100" y="200" width="200" height="120" rx="12" fill="#ffffff" stroke="#f59e0b" stroke-width="1.5"/>
+  </g>
+  <text x="1200" y="236" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="16" font-weight="600" fill="#0d203a">消费端</text>
+  <text x="1200" y="258" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#55657a">kafka source</text>
+  <text x="1200" y="278" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#55657a">Vector Aggregator</text>
+  <text x="1200" y="298" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#55657a">或自定义消费者</text>
+
+  <g filter="url(#shadow)">
+    <rect x="1340" y="200" width="180" height="120" rx="12" fill="#ffffff" stroke="#f59e0b" stroke-width="1.5"/>
+  </g>
+  <text x="1430" y="236" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="16" font-weight="600" fill="#0d203a">VictoriaLogs</text>
+  <text x="1430" y="258" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#55657a">单进程日志库</text>
+  <text x="1430" y="278" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#55657a">:9428 · LogsQL</text>
+  <text x="1430" y="298" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#55657a">高压缩低占用</text>
+
+  <g filter="url(#shadow)">
+    <rect x="1100" y="380" width="200" height="104" rx="12" fill="#ffffff" stroke="#f59e0b" stroke-width="1.5"/>
+  </g>
+  <text x="1200" y="416" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="600" fill="#0d203a">Grafana</text>
+  <text x="1200" y="438" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#55657a">Explore 检索</text>
+  <text x="1200" y="458" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#55657a">日志 / 统计仪表盘</text>
+
+  <g filter="url(#shadow)">
+    <rect x="1340" y="380" width="180" height="104" rx="12" fill="#ffffff" stroke="#f59e0b" stroke-width="1.5"/>
+  </g>
+  <text x="1430" y="416" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="600" fill="#0d203a">vmalert</text>
+  <text x="1430" y="438" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#55657a">LogsQL 告警评估</text>
+  <text x="1430" y="458" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#55657a">→ Alertmanager 通知</text>
+
+  <!-- 跨组箭头 -->
+  <line x1="400" y1="310" x2="554" y2="266" stroke="#047eb8" stroke-width="2.5" marker-end="url(#arrowBlue)"/>
+  <text x="477" y="118" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#047eb8">kafka sink 批量写入</text>
+
+  <line x1="940" y1="266" x2="1094" y2="262" stroke="#16a34a" stroke-width="2.5" marker-end="url(#arrowGreen)"/>
+  <text x="1020" y="118" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#15803d">kafka source 按 offset 消费</text>
+
+  <line x1="1300" y1="260" x2="1336" y2="260" stroke="#b45309" stroke-width="2.5" marker-end="url(#arrowOrange)"/>
+  <marker id="arrowOrange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="#b45309"/>
+  </marker>
+  <text x="1318" y="246" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#b45309">写入</text>
+
+  <line x1="1430" y1="320" x2="1230" y2="376" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrowGray)"/>
+  <text x="1324" y="352" text-anchor="middle" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#64748b">LogsQL 查询</text>
+
+  <line x1="1430" y1="320" x2="1430" y2="376" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrowGray)"/>
+
+  <!-- 底部说明条 -->
+  <rect x="40" y="620" width="1520" height="200" rx="14" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="80" y="660" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="16" font-weight="600" fill="#0d203a">这一层解决了什么</text>
+
+  <text x="80" y="696" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#33415c">· 削峰填谷：突发流量先落队列，存储按自己的节奏消费</text>
+  <text x="80" y="722" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#33415c">· 解耦缓冲：VictoriaLogs 维护重启时数据在 AutoMQ 里排队，采集端无感</text>
+  <text x="80" y="748" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#33415c">· 可重放：消费失败可重置 offset 重新消费，排障与数据修复更容易</text>
+  <text x="80" y="774" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#33415c">· 多下游分发：同一份日志可被日志库、数仓、审计各自独立消费</text>
+
+  <text x="620" y="696" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#33415c">· 代价：多一层组件与秒级延迟，中小规模直连更简单</text>
+  <text x="620" y="722" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#33415c">· 适用：日增量 TB 级、多下游消费、存储侧变更频繁时引入</text>
+  <text x="620" y="748" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#33415c">· 接入：Vector 写端 kafka sink，消费端 kafka source，无需改协议</text>
+  <text x="620" y="774" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#33415c">· 存储：数据落 S3 对象存储，免去 Kafka 磁盘均衡与副本迁移</text>
+
+  <!-- 图例 -->
+  <text x="1160" y="660" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="600" fill="#0d203a">图例</text>
+  <line x1="1160" y1="692" x2="1210" y2="692" stroke="#047eb8" stroke-width="2.5"/>
+  <text x="1220" y="697" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#33415c">写入数据流</text>
+  <line x1="1160" y1="722" x2="1210" y2="722" stroke="#16a34a" stroke-width="2.5"/>
+  <text x="1220" y="727" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#33415c">消费数据流</text>
+  <line x1="1160" y1="752" x2="1210" y2="752" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="1220" y="757" font-family="MiSans,'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#33415c">查询 / 控制流</text>
+</svg>
